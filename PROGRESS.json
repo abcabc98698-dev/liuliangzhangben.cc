@@ -52,8 +52,9 @@
       "categories": 13,
       "home": 1,
       "pillarHubsUpgraded": 14,
+      "subcategoriesUpgraded": 26,
       "wireTracePolished": true,
-      "totalChineseCharacters": 1607692
+      "totalChineseCharacters": 1666140
     },
     "F_PAGEFIND_SEARCH_AND_SITEMAP": {
       "status": "COMPLETED",
@@ -78,8 +79,9 @@
     "deadLinks": 0,
     "secretLeaks": 0,
     "urlAntiAiScore": 100,
-    "totalChineseCharacters": 1607692,
+    "totalChineseCharacters": 1666140,
     "pillarHubsWordCount": 108825,
+    "subcategoriesWordCount": 74836,
     "averageContentSimilarity": "3.61% (Max 39.93%, 0 pairs > 40%)"
   }
 }

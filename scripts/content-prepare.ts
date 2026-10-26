@@ -17,6 +17,7 @@ import { generateDevicesArticle } from './generators/devices';
 import { generateReconcileArticle } from './generators/reconcile';
 import { generateKnowledgeArticle } from './generators/knowledge';
 import { generatePillarHub } from './generators/pillars';
+import { generateSubcategoryHub } from './generators/subcategories';
 
 const DATA_DIR = path.resolve(process.cwd(), 'data');
 const CONTENT_DIR = path.resolve(process.cwd(), 'content');
@@ -85,7 +86,7 @@ function generateDeepMarkdown(node: ContentNode): string {
   if (node.type === 'home' || node.type === 'category') {
     return generatePillarHub(node);
   } else if (node.type === 'subcategory') {
-    return generateSubcategoryPage(node);
+    return generateSubcategoryHub(node);
   } else if (node.type === 'cluster') {
     return generateClusterPage(node);
   } else {
