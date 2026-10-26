@@ -2,7 +2,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const PORT = 4173;
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 5188;
 const DIST_DIR = path.resolve(process.cwd(), 'site', '.vitepress', 'dist');
 
 const MIME_TYPES = {
@@ -59,6 +59,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`[PREVIEW] 稳定预览服务已在 http://localhost:${PORT}/ 启动 (PID: ${process.pid})`);
+server.listen(PORT, () => {
+  console.log(`[PREVIEW] 流量账本 (liuliangzhangben.cc) 专属预览服务已在 http://localhost:${PORT}/ 启动 (PID: ${process.pid})`);
 });
