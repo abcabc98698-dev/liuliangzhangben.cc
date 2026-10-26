@@ -16,6 +16,7 @@ import { generateMobileArticle } from './generators/mobile';
 import { generateDevicesArticle } from './generators/devices';
 import { generateReconcileArticle } from './generators/reconcile';
 import { generateKnowledgeArticle } from './generators/knowledge';
+import { generatePillarHub } from './generators/pillars';
 
 const DATA_DIR = path.resolve(process.cwd(), 'data');
 const CONTENT_DIR = path.resolve(process.cwd(), 'content');
@@ -81,10 +82,8 @@ if (fs.existsSync(srcPublicDir)) {
 console.log(`[PASS] 成功准备 ${publishedCount} 个正式节点至 site/generated/`);
 
 function generateDeepMarkdown(node: ContentNode): string {
-  if (node.type === 'home') {
-    return generateHomePage(node);
-  } else if (node.type === 'category') {
-    return generateCategoryPage(node);
+  if (node.type === 'home' || node.type === 'category') {
+    return generatePillarHub(node);
   } else if (node.type === 'subcategory') {
     return generateSubcategoryPage(node);
   } else if (node.type === 'cluster') {
