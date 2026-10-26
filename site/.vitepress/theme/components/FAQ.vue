@@ -2,24 +2,67 @@
   <div style="margin: 2rem 0;">
     <h3 v-if="title" style="margin-bottom: 1rem;">{{ title }}</h3>
 
-    <div v-for="(item, idx) in items" :key="idx" style="border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 0.75rem; overflow: hidden; background: #fff;">
+    <div v-for="(item, idx) in items" :key="idx" class="faq-item">
       <button
-        style="width: 100%; text-align: left; padding: 0.85rem 1.25rem; background: #f8fafc; border: none; font-size: 0.95rem; font-weight: 600; color: #1e293b; cursor: pointer; display: flex; justify-content: space-between; align-items: center;"
+        class="faq-question-btn"
         @click="toggle(idx)"
       >
         <span>{{ item.q }}</span>
-        <span style="font-size: 1.1rem; color: #64748b;">{{ openIndex === idx ? '−' : '+' }}</span>
+        <span style="font-size: 1.1rem; color: #64748b; margin-left: 0.5rem;">{{ openIndex === idx ? '−' : '+' }}</span>
       </button>
 
       <div
         v-show="openIndex === idx"
-        style="padding: 1rem 1.25rem; font-size: 0.9rem; color: #475569; line-height: 1.6; border-top: 1px solid #e2e8f0;"
+        class="faq-answer-body"
       >
         {{ item.a }}
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.faq-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  background: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.faq-item:hover {
+  border-color: #cbd5e1;
+}
+
+.faq-question-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.85rem 1.25rem;
+  background: #f8fafc;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.faq-question-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.faq-answer-body {
+  padding: 1rem 1.25rem;
+  font-size: 0.925rem;
+  color: #475569;
+  line-height: 1.6;
+  border-top: 1px solid #e2e8f0;
+}
+</style>
 
 <script setup lang="ts">
 import { ref } from 'vue';
