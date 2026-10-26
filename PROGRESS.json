@@ -3,7 +3,7 @@
   "brand": "流量账本",
   "targetUrl": "https://liuliangzhangben.cc",
   "mainSiteUrl": "https://jichangbang.org",
-  "lastUpdated": "2026-10-27T00:15:00+08:00",
+  "lastUpdated": "2026-10-27T00:30:00+08:00",
   "phases": {
     "A_CONTRACT_AND_REGISTRY": {
       "status": "COMPLETED",
@@ -51,7 +51,9 @@
       "subcategories": 26,
       "categories": 13,
       "home": 1,
-      "totalChineseCharacters": 1604651
+      "pillarHubsUpgraded": 14,
+      "wireTracePolished": true,
+      "totalChineseCharacters": 1607692
     },
     "F_PAGEFIND_SEARCH_AND_SITEMAP": {
       "status": "COMPLETED",
@@ -76,7 +78,8 @@
     "deadLinks": 0,
     "secretLeaks": 0,
     "urlAntiAiScore": 100,
-    "totalChineseCharacters": 1604651,
+    "totalChineseCharacters": 1607692,
+    "pillarHubsWordCount": 108825,
     "averageContentSimilarity": "3.61% (Max 39.93%, 0 pairs > 40%)"
   }
 }

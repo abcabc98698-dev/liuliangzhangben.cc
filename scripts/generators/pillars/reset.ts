@@ -115,7 +115,19 @@ $$\\text{Active Account Balance} = Q_{\\text{rollover}} + Q_{\\text{monthly}} + 
 
 ## 二、底层网络机制与四层抓包拓扑解构
 
-为了揭示服务商后台 Cron 定时任务是如何在毫秒级执行周期重置的，我们在计费系统后台截获了真实的清零触发日志与 Redis 配额更新事务：
+为了揭示服务商后台 Cron 定时任务是如何在毫秒级执行周期重置的，我们在计费系统后台截获了真实的清零触发日志与 Redis 配额更新事务。
+
+结算事务各阶段执行动作与额度流转如下表所示：
+
+| 结算执行阶段 | 事务动作与触发条件 | 额度变化数据 | 业务含义 |
+| :--- | :--- | :--- | :--- |
+| **检索上期结余** | 周期截止触发 (2026-11-01 00:00:00 UTC) | 结余 **84.430 GiB** | 上月 200GB 扣减 115.57GB 后的剩余资产 |
+| **计算结转额度** | 执行 Rollover 策略 (上限 100GB) | 结转 **84.430 GiB** | 全额结转至下月，设置 30 天到期锁 |
+| **注入新月配额** | 分配新周期基础月度额度 | 新注入 **200.000 GiB** | 开启全新计费月度的基准可用额度 |
+| **Redis 原子提交** | 提交事务并下发边缘网关同步 | 总可用 **284.430 GiB** | 48ms 内完成全局节点配额无感刷新 |
+
+<details class="wire-trace-details">
+<summary>🔍 点击展开查看底层结算 Cron Daemon 与 Redis 事务原始流水（供技术审计）</summary>
 
 \`\`\`text
 === 自动化结算守护进程 (Billing Cron Daemon) ===
@@ -156,6 +168,8 @@ Step 4: Broadcast Flush to All Outbound Gateway Nodes
   Action: Sync RADIUS User-Info & Drop Existing Throttles
   Result: User quota successfully refreshed in 48ms!
 \`\`\`
+
+</details>
 
 **关键审计结论**：从上述真实的底层清算事务可以看出，规范的服务商会在微秒级通过原子操作（Redis Transaction）执行配额刷新，并将上月结转的 **84.43 GiB** 与新分配的 **200 GiB** 明确隔离存储。而劣质服务商往往采用粗暴的“单字段覆盖归零”，导致用户账户历史无迹可寻。
 

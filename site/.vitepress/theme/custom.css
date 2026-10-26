@@ -307,3 +307,44 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   margin-right: 8px;
 }
+
+/* 抓包明细折叠框与分层拓扑样式 */
+.wire-trace-details {
+  margin: 1.5rem 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  padding: 0.85rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.wire-trace-details summary {
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e40af;
+  user-select: none;
+  padding: 0.25rem 0;
+  outline: none;
+}
+
+.wire-trace-details summary:hover {
+  color: #2563eb;
+}
+
+.wire-trace-details[open] {
+  background-color: #ffffff;
+  border-color: #94a3b8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.wire-trace-details[open] summary {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.wire-trace-details pre {
+  margin-top: 0.5rem;
+}
+
