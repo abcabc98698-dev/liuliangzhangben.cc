@@ -1,0 +1,255 @@
+:root {
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #1d4ed8;
+  --vp-c-brand-3: #1e40af;
+  --vp-c-brand-soft: #eff6ff;
+
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --vp-font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  --color-ledger-bg: #f8fafc;
+  --color-ledger-border: #e2e8f0;
+  --color-ledger-header: #f1f5f9;
+  --color-badge-bg: #f1f5f9;
+  --color-badge-text: #475569;
+}
+
+/* 账本式表格排版 */
+.vp-doc table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+.vp-doc th {
+  background-color: var(--color-ledger-header);
+  font-weight: 600;
+  color: #1e293b;
+  border: 1px solid var(--color-ledger-border);
+  padding: 0.65rem 0.9rem;
+  white-space: nowrap;
+}
+
+.vp-doc td {
+  border: 1px solid var(--color-ledger-border);
+  padding: 0.6rem 0.9rem;
+}
+
+.vp-doc tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+/* 账本数字等宽对齐 */
+.num-col {
+  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* 交互卡片与分区 */
+.ledger-tool-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.ledger-tool-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.ledger-tool-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.ledger-input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ledger-input-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.ledger-input-control {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.ledger-input-control:focus {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: -1px;
+}
+
+.ledger-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.ledger-btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.ledger-btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.ledger-btn-secondary {
+  background-color: #f1f5f9;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.ledger-btn-secondary:hover {
+  background-color: #e2e8f0;
+}
+
+.ledger-result-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.ledger-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.ledger-stat-item {
+  padding: 0.5rem;
+}
+
+.ledger-stat-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 0.2rem;
+}
+
+.ledger-stat-value {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  font-family: var(--vp-font-family-mono);
+}
+
+/* 证据等级标签 */
+.evidence-badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.775rem;
+  font-weight: 500;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #334155;
+}
+
+.evidence-badge.service-claim {
+  border-color: #fed7aa;
+  background-color: #fff7ed;
+  color: #9a3412;
+}
+
+.evidence-badge.client-kernel {
+  border-color: #bae6fd;
+  background-color: #f0f9ff;
+  color: #0369a1;
+}
+
+.evidence-badge.model-estimate {
+  border-color: #ddd6fe;
+  background-color: #f5f3ff;
+  color: #5b21b6;
+}
+
+/* 主站中性转介卡片 */
+.main-site-cta-card {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #2563eb;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.main-site-cta-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.main-site-cta-card p {
+  margin: 0 0 1rem 0;
+  font-size: 0.925rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.main-site-cta-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.disclosure-note {
+  font-size: 0.775rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* 决策树展示 */
+.decision-tree-container {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  background-color: #ffffff;
+}
+
+.decision-step {
+  padding: 0.75rem;
+  border-left: 2px solid #2563eb;
+  margin-left: 0.5rem;
+  margin-bottom: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0 6px 6px 0;
+}

@@ -1,0 +1,77 @@
+{
+  "project": "liuliangzhangben.cc",
+  "brand": "流量账本",
+  "targetUrl": "https://liuliangzhangben.cc",
+  "mainSiteUrl": "https://jichangbang.org",
+  "lastUpdated": "2026-10-26T21:05:00+08:00",
+  "phases": {
+    "A_CONTRACT_AND_REGISTRY": {
+      "status": "COMPLETED",
+      "plannedNodes": 560,
+      "categories": 13,
+      "subcategories": 26,
+      "clusters": 104,
+      "articles": 416
+    },
+    "B_VITEPRESS_ENGINEERING": {
+      "status": "COMPLETED",
+      "framework": "VitePress 1.6.4",
+      "theme": "Minimalist White Ledger Theme",
+      "navigation": "Strictly verified"
+    },
+    "C_CALCULATION_MODULES_AND_TESTS": {
+      "status": "COMPLETED",
+      "testVectors": "A_TO_L",
+      "unitTestsPassed": 13,
+      "testFramework": "Vitest 2.1.9"
+    },
+    "D_UI_COMPONENTS_AND_TOOLS": {
+      "status": "COMPLETED",
+      "components": [
+        "UsageLedger",
+        "MultiplierCalculator",
+        "ResetTimeline",
+        "PaygComparator",
+        "TrafficEstimator",
+        "VideoEstimator",
+        "DeviceAggregator",
+        "ReconciliationPanel",
+        "EvidenceBadge",
+        "DecisionTree",
+        "FAQ",
+        "MainSiteCTA",
+        "Disclosure"
+      ]
+    },
+    "E_CONTENT_PRODUCTION": {
+      "status": "COMPLETED",
+      "totalNodes": 560,
+      "publishedArticles": 416,
+      "clusters": 104,
+      "subcategories": 26,
+      "categories": 13,
+      "home": 1,
+      "totalChineseCharacters": 973456
+    },
+    "F_PAGEFIND_SEARCH_AND_SITEMAP": {
+      "status": "COMPLETED",
+      "indexedPages": 563,
+      "sitemapGenerated": true
+    },
+    "G_AUDITS_AND_DEPLOYMENT": {
+      "status": "COMPLETED",
+      "seoAudit": "PASS",
+      "privacyAudit": "PASS",
+      "qaReport": "PASS",
+      "apacheConfig": "READY"
+    }
+  },
+  "metrics": {
+    "totalNodes": 560,
+    "publishedCount": 560,
+    "unitTestsPassed": 13,
+    "buildStatus": "PASS",
+    "deadLinks": 0,
+    "secretLeaks": 0
+  }
+}

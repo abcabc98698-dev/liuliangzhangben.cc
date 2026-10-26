@@ -1,0 +1,63 @@
+# 流量账本 (liuliangzhangben.cc) Apache 静态部署配置文件
+# 严禁 SPA 全量重写回退，真实 404 响应，严格执行安全标头与缓存策略
+
+# 1. 编码与基础选项
+AddDefaultCharset UTF-8
+Options -Indexes +FollowSymLinks
+DirectorySlash On
+DirectoryIndex index.html
+
+# 2. 自定义错误文档 (保证真实 404 状态码，禁止伪造 200)
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 规范化 HTTPS 跳转 (根据生产环境证书启用)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 目录尾斜杠规范化：非文件请求且非以斜杠结尾时，301 重定向至规范目录
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+</IfModule>
+
+# 3. HTTP 安全标头
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# 4. 浏览器缓存策略
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML 与 JSON 数据重新验证，避免旧正文匹配新索引
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+
+  # Pagefind 静态索引与搜索产物 (允许短缓存)
+  ExpiresByType application/wasm "access plus 1 day"
+
+  # 带哈希的静态资源长久缓存
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # 针对带哈希静态资源的 Cache-Control 增强
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+
+  # HTML 页面严格协商缓存
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

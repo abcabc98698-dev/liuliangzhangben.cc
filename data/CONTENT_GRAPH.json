@@ -1,0 +1,3356 @@
+[
+  {
+    "fromId": "home",
+    "toId": "cat:records",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:records",
+    "toId": "sub:records:baseline",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:records:baseline",
+    "toId": "cluster:records:baseline:sources",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:records:baseline",
+    "toId": "cluster:records:baseline:fields",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:records:baseline",
+    "toId": "cluster:records:baseline:sampling",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:records:baseline",
+    "toId": "cluster:records:baseline:evidence-labels",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:records",
+    "toId": "sub:records:management",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:records:management",
+    "toId": "cluster:records:management:local-storage",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:records:management",
+    "toId": "cluster:records:management:file-import",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:records:management",
+    "toId": "cluster:records:management:summaries",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:records:management",
+    "toId": "cluster:records:management:audit-trail",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:estimate",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:estimate",
+    "toId": "sub:estimate:models",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:estimate:models",
+    "toId": "cluster:estimate:models:baseline-sample",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:estimate:models",
+    "toId": "cluster:estimate:models:task-size",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:estimate:models",
+    "toId": "cluster:estimate:models:unit-rate",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:estimate:models",
+    "toId": "cluster:estimate:models:traffic-scope",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:estimate",
+    "toId": "sub:estimate:forecast",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:estimate:forecast",
+    "toId": "cluster:estimate:forecast:composition",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:estimate:forecast",
+    "toId": "cluster:estimate:forecast:scenarios",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:estimate:forecast",
+    "toId": "cluster:estimate:forecast:period-fit",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:estimate:forecast",
+    "toId": "cluster:estimate:forecast:validation",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:multipliers",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:multipliers",
+    "toId": "sub:multipliers:calculation",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:multipliers:calculation",
+    "toId": "cluster:multipliers:calculation:single-rate",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:multipliers:calculation",
+    "toId": "cluster:multipliers:calculation:directions",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:multipliers:calculation",
+    "toId": "cluster:multipliers:calculation:mixed-rates",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:multipliers:calculation",
+    "toId": "cluster:multipliers:calculation:rate-history",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:multipliers",
+    "toId": "sub:multipliers:verification",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:multipliers:verification",
+    "toId": "cluster:multipliers:verification:sources",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:multipliers:verification",
+    "toId": "cluster:multipliers:verification:path-accounting",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:multipliers:verification",
+    "toId": "cluster:multipliers:verification:exceptions",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:multipliers:verification",
+    "toId": "cluster:multipliers:verification:selection",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:reset",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:reset",
+    "toId": "sub:reset:boundaries",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:reset:boundaries",
+    "toId": "cluster:reset:boundaries:calendar",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reset:boundaries",
+    "toId": "cluster:reset:boundaries:rolling",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reset:boundaries",
+    "toId": "cluster:reset:boundaries:timezone",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reset:boundaries",
+    "toId": "cluster:reset:boundaries:remaining",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:reset",
+    "toId": "sub:reset:balances",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:reset:balances",
+    "toId": "cluster:reset:balances:rollover",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reset:balances",
+    "toId": "cluster:reset:balances:renew-upgrade",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reset:balances",
+    "toId": "cluster:reset:balances:topups",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reset:balances",
+    "toId": "cluster:reset:balances:closeout",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:payg",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:payg",
+    "toId": "sub:payg:terms",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:payg:terms",
+    "toId": "cluster:payg:terms:definitions",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:payg:terms",
+    "toId": "cluster:payg:terms:purchase-units",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:payg:terms",
+    "toId": "cluster:payg:terms:constraints",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:payg:terms",
+    "toId": "cluster:payg:terms:exit",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:payg",
+    "toId": "sub:payg:fit",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:payg:fit",
+    "toId": "cluster:payg:fit:frequency",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:payg:fit",
+    "toId": "cluster:payg:fit:pack-sizing",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:payg:fit",
+    "toId": "cluster:payg:fit:comparison",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:payg:fit",
+    "toId": "cluster:payg:fit:verification",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:high-data",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:high-data",
+    "toId": "sub:high-data:demand",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:high-data:demand",
+    "toId": "cluster:high-data:demand:task-inventory",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:high-data:demand",
+    "toId": "cluster:high-data:demand:capacity",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:high-data:demand",
+    "toId": "cluster:high-data:demand:bursts",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:high-data:demand",
+    "toId": "cluster:high-data:demand:retries",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:high-data",
+    "toId": "sub:high-data:plans",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:high-data:plans",
+    "toId": "cluster:high-data:plans:quota-selection",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:high-data:plans",
+    "toId": "cluster:high-data:plans:allocation",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:high-data:plans",
+    "toId": "cluster:high-data:plans:acceptance",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:high-data:plans",
+    "toId": "cluster:high-data:plans:efficiency",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:occasional",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:occasional",
+    "toId": "sub:occasional:patterns",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:occasional:patterns",
+    "toId": "cluster:occasional:patterns:active-days",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:occasional:patterns",
+    "toId": "cluster:occasional:patterns:temporary",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:occasional:patterns",
+    "toId": "cluster:occasional:patterns:backup",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:occasional:patterns",
+    "toId": "cluster:occasional:patterns:seasonal",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:occasional",
+    "toId": "sub:occasional:maintenance",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:occasional:maintenance",
+    "toId": "cluster:occasional:maintenance:account-check",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:occasional:maintenance",
+    "toId": "cluster:occasional:maintenance:lightweight-logging",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:occasional:maintenance",
+    "toId": "cluster:occasional:maintenance:purchase-timing",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:occasional:maintenance",
+    "toId": "cluster:occasional:maintenance:review",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:video",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:video",
+    "toId": "sub:video:models",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:video:models",
+    "toId": "cluster:video:models:bitrate",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:video:models",
+    "toId": "cluster:video:models:adaptive",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:video:models",
+    "toId": "cluster:video:models:cache",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:video:models",
+    "toId": "cluster:video:models:multiscreen",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:video",
+    "toId": "sub:video:plans",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:video:plans",
+    "toId": "cluster:video:plans:tv-casting",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:video:plans",
+    "toId": "cluster:video:plans:live",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:video:plans",
+    "toId": "cluster:video:plans:schedule",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:video:plans",
+    "toId": "cluster:video:plans:verify",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:ai",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:ai",
+    "toId": "sub:ai:workloads",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:ai:workloads",
+    "toId": "cluster:ai:workloads:text",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:ai:workloads",
+    "toId": "cluster:ai:workloads:files",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:ai:workloads",
+    "toId": "cluster:ai:workloads:multimodal",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:ai:workloads",
+    "toId": "cluster:ai:workloads:coding",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:ai",
+    "toId": "sub:ai:accounting",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:ai:accounting",
+    "toId": "cluster:ai:accounting:tokens",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:ai:accounting",
+    "toId": "cluster:ai:accounting:retries",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:ai:accounting",
+    "toId": "cluster:ai:accounting:scope",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:ai:accounting",
+    "toId": "cluster:ai:accounting:planning",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:mobile",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:mobile",
+    "toId": "sub:mobile:counters",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:mobile:counters",
+    "toId": "cluster:mobile:counters:android",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:mobile:counters",
+    "toId": "cluster:mobile:counters:ios",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:mobile:counters",
+    "toId": "cluster:mobile:counters:network-types",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:mobile:counters",
+    "toId": "cluster:mobile:counters:hotspot",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:mobile",
+    "toId": "sub:mobile:management",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:mobile:management",
+    "toId": "cluster:mobile:management:background",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:mobile:management",
+    "toId": "cluster:mobile:management:app-scope",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:mobile:management",
+    "toId": "cluster:mobile:management:cycle-management",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:mobile:management",
+    "toId": "cluster:mobile:management:migration",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:devices",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:devices",
+    "toId": "sub:devices:aggregation",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:devices:aggregation",
+    "toId": "cluster:devices:aggregation:identity",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:devices:aggregation",
+    "toId": "cluster:devices:aggregation:deduplication",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:devices:aggregation",
+    "toId": "cluster:devices:aggregation:pools",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:devices:aggregation",
+    "toId": "cluster:devices:aggregation:time-scope",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:devices",
+    "toId": "sub:devices:allocation",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:devices:allocation",
+    "toId": "cluster:devices:allocation:task-sharing",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:devices:allocation",
+    "toId": "cluster:devices:allocation:concurrency",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:devices:allocation",
+    "toId": "cluster:devices:allocation:allocation-rules",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:devices:allocation",
+    "toId": "cluster:devices:allocation:lifecycle",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:reconcile",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:reconcile",
+    "toId": "sub:reconcile:alignment",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:reconcile:alignment",
+    "toId": "cluster:reconcile:alignment:basis",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reconcile:alignment",
+    "toId": "cluster:reconcile:alignment:timing",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reconcile:alignment",
+    "toId": "cluster:reconcile:alignment:components",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reconcile:alignment",
+    "toId": "cluster:reconcile:alignment:uncertainty",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:reconcile",
+    "toId": "sub:reconcile:resolution",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:reconcile:resolution",
+    "toId": "cluster:reconcile:resolution:evidence",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reconcile:resolution",
+    "toId": "cluster:reconcile:resolution:communication",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reconcile:resolution",
+    "toId": "cluster:reconcile:resolution:adjustments",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:reconcile:resolution",
+    "toId": "cluster:reconcile:resolution:reporting",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "home",
+    "toId": "cat:knowledge",
+    "relation": "parent-child",
+    "reason": "首页索引全站一级分类"
+  },
+  {
+    "fromId": "cat:knowledge",
+    "toId": "sub:knowledge:measurement",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:knowledge:measurement",
+    "toId": "cluster:knowledge:measurement:units",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:knowledge:measurement",
+    "toId": "cluster:knowledge:measurement:entitlements",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:knowledge:measurement",
+    "toId": "cluster:knowledge:measurement:statistics",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:knowledge:measurement",
+    "toId": "cluster:knowledge:measurement:value",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cat:knowledge",
+    "toId": "sub:knowledge:network",
+    "relation": "parent-child",
+    "reason": "一级专题拆分为二级纵深"
+  },
+  {
+    "fromId": "sub:knowledge:network",
+    "toId": "cluster:knowledge:network:roles",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:knowledge:network",
+    "toId": "cluster:knowledge:network:transport",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:knowledge:network",
+    "toId": "cluster:knowledge:network:routing",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "sub:knowledge:network",
+    "toId": "cluster:knowledge:network:trust",
+    "relation": "parent-child",
+    "reason": "二级专题拆分为三级集群"
+  },
+  {
+    "fromId": "cluster:records:baseline:sources",
+    "toId": "records:choose-counter",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:sources",
+    "toId": "records:observation-layer",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:sources",
+    "toId": "records:account-anchor",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:sources",
+    "toId": "records:no-device-monitor",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:fields",
+    "toId": "records:minimum-ledger",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:fields",
+    "toId": "records:source-unit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:fields",
+    "toId": "records:timestamp-zone",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:fields",
+    "toId": "records:counter-restart",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:sampling",
+    "toId": "records:increment-cumulative",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:sampling",
+    "toId": "records:observation-interval",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:sampling",
+    "toId": "records:background-baseline",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:sampling",
+    "toId": "records:missing-interval",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:evidence-labels",
+    "toId": "records:measured-vs-modeled",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:evidence-labels",
+    "toId": "records:zero-vs-unknown",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:evidence-labels",
+    "toId": "records:redacted-evidence",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:baseline:evidence-labels",
+    "toId": "records:uncertain-reading",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:local-storage",
+    "toId": "records:session-or-save",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:local-storage",
+    "toId": "records:browser-storage-loss",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:local-storage",
+    "toId": "records:restore-version",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:local-storage",
+    "toId": "records:clear-private-ledger",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:file-import",
+    "toId": "records:map-csv-columns",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:file-import",
+    "toId": "records:repeat-import",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:file-import",
+    "toId": "records:invalid-import",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:file-import",
+    "toId": "records:safe-export",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:summaries",
+    "toId": "records:daily-weekly-period",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:summaries",
+    "toId": "records:share-of-usage",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:summaries",
+    "toId": "records:partial-period-chart",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:summaries",
+    "toId": "records:summary-check",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:audit-trail",
+    "toId": "records:correct-entry",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:audit-trail",
+    "toId": "records:classification-change",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:audit-trail",
+    "toId": "records:shared-summary",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:records:management:audit-trail",
+    "toId": "records:ledger-review-checklist",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:baseline-sample",
+    "toId": "estimate:select-sample-days",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:baseline-sample",
+    "toId": "estimate:short-trial-sample",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:baseline-sample",
+    "toId": "estimate:active-day-baseline",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:baseline-sample",
+    "toId": "estimate:atypical-day",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:task-size",
+    "toId": "estimate:frequency-duration",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:task-size",
+    "toId": "estimate:file-count-size",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:task-size",
+    "toId": "estimate:partial-transfer",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:task-size",
+    "toId": "estimate:session-overlap",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:unit-rate",
+    "toId": "estimate:mbps-to-gb",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:unit-rate",
+    "toId": "estimate:mbps-vs-megabytes",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:unit-rate",
+    "toId": "estimate:variable-rate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:unit-rate",
+    "toId": "estimate:unit-rounding",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:traffic-scope",
+    "toId": "estimate:proxied-share",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:traffic-scope",
+    "toId": "estimate:upload-download-budget",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:traffic-scope",
+    "toId": "estimate:overhead-unknown",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:models:traffic-scope",
+    "toId": "estimate:cache-in-estimate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:composition",
+    "toId": "estimate:monthly-task-plan",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:composition",
+    "toId": "estimate:weekday-weekend",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:composition",
+    "toId": "estimate:multi-phase-month",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:composition",
+    "toId": "estimate:quota-vs-observation",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:scenarios",
+    "toId": "estimate:low-base-high",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:scenarios",
+    "toId": "estimate:reserve-budget",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:scenarios",
+    "toId": "estimate:oneoff-reserve",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:scenarios",
+    "toId": "estimate:heavy-tail",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:period-fit",
+    "toId": "estimate:fit-monthly-reset",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:period-fit",
+    "toId": "estimate:remaining-days",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:period-fit",
+    "toId": "estimate:new-plan-start",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:period-fit",
+    "toId": "estimate:forecast-to-selection",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:validation",
+    "toId": "estimate:forecast-error",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:validation",
+    "toId": "estimate:backtest-forecast",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:validation",
+    "toId": "estimate:missing-confidence",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:estimate:forecast:validation",
+    "toId": "estimate:update-model",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:single-rate",
+    "toId": "multipliers:multiplier-meaning",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:single-rate",
+    "toId": "multipliers:remaining-at-rate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:single-rate",
+    "toId": "multipliers:fractional-rate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:single-rate",
+    "toId": "multipliers:rate-not-speed",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:directions",
+    "toId": "multipliers:direction-weight",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:directions",
+    "toId": "multipliers:upload-not-free",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:directions",
+    "toId": "multipliers:asymmetric-rates",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:directions",
+    "toId": "multipliers:observed-vs-billed",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:mixed-rates",
+    "toId": "multipliers:weighted-multiplier",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:mixed-rates",
+    "toId": "multipliers:rate-session-split",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:mixed-rates",
+    "toId": "multipliers:missing-rate-segment",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:mixed-rates",
+    "toId": "multipliers:quota-allocation",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:rate-history",
+    "toId": "multipliers:rate-effective-time",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:rate-history",
+    "toId": "multipliers:cross-change-transfer",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:rate-history",
+    "toId": "multipliers:label-cache",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:calculation:rate-history",
+    "toId": "multipliers:record-announcement",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:sources",
+    "toId": "multipliers:verify-rate-claim",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:sources",
+    "toId": "multipliers:controlled-rate-test",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:sources",
+    "toId": "multipliers:measurement-limit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:sources",
+    "toId": "multipliers:unexplained-deduction",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:path-accounting",
+    "toId": "multipliers:parallel-proxy-paths",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:path-accounting",
+    "toId": "multipliers:client-tun-duplicate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:path-accounting",
+    "toId": "multipliers:network-hop-count",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:path-accounting",
+    "toId": "multipliers:provider-pool",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:exceptions",
+    "toId": "multipliers:zero-rate-condition",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:exceptions",
+    "toId": "multipliers:protocol-billing",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:exceptions",
+    "toId": "multipliers:rate-unknown-ui",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:exceptions",
+    "toId": "multipliers:rule-conflict",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:selection",
+    "toId": "multipliers:compare-effective-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:selection",
+    "toId": "multipliers:rate-cost-tradeoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:selection",
+    "toId": "multipliers:rate-budget-for-task",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:multipliers:verification:selection",
+    "toId": "multipliers:multiplier-handoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:calendar",
+    "toId": "reset:calendar-reset",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:calendar",
+    "toId": "reset:fixed-day-reset",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:calendar",
+    "toId": "reset:month-end-rule",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:calendar",
+    "toId": "reset:calendar-vs-expiry",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:rolling",
+    "toId": "reset:anniversary-reset",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:rolling",
+    "toId": "reset:fixed-thirty-days",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:rolling",
+    "toId": "reset:activation-trigger",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:rolling",
+    "toId": "reset:period-unknown",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:timezone",
+    "toId": "reset:service-timezone",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:timezone",
+    "toId": "reset:exact-reset-instant",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:timezone",
+    "toId": "reset:cross-boundary-task",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:timezone",
+    "toId": "reset:clock-mismatch",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:remaining",
+    "toId": "reset:remaining-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:remaining",
+    "toId": "reset:expiry-vs-zero",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:remaining",
+    "toId": "reset:partial-period",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:boundaries:remaining",
+    "toId": "reset:remaining-forecast",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:rollover",
+    "toId": "reset:no-rollover",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:rollover",
+    "toId": "reset:rollover-order",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:rollover",
+    "toId": "reset:carry-cap",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:rollover",
+    "toId": "reset:pool-separation",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:renew-upgrade",
+    "toId": "reset:renew-period-effect",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:renew-upgrade",
+    "toId": "reset:upgrade-reset-effect",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:renew-upgrade",
+    "toId": "reset:renew-extend-only",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:renew-upgrade",
+    "toId": "reset:change-cycle-audit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:topups",
+    "toId": "reset:topup-or-reset",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:topups",
+    "toId": "reset:topup-expiry",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:topups",
+    "toId": "reset:consume-order",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:topups",
+    "toId": "reset:manual-reset-log",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:closeout",
+    "toId": "reset:period-closeout",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:closeout",
+    "toId": "reset:aggregate-periods",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:closeout",
+    "toId": "reset:reopen-period",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reset:balances:closeout",
+    "toId": "reset:reset-boundary-test",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:definitions",
+    "toId": "payg:payg-definitions",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:definitions",
+    "toId": "payg:no-expiry-not-forever",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:definitions",
+    "toId": "payg:fixed-pack-vs-metered",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:definitions",
+    "toId": "payg:payg-maintenance-terms",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:purchase-units",
+    "toId": "payg:whole-pack-purchase",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:purchase-units",
+    "toId": "payg:pack-rate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:purchase-units",
+    "toId": "payg:purchased-vs-consumed",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:purchase-units",
+    "toId": "payg:pack-promotion",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:constraints",
+    "toId": "payg:payg-other-fees",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:constraints",
+    "toId": "payg:payg-device-rule",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:constraints",
+    "toId": "payg:payg-performance",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:constraints",
+    "toId": "payg:payg-payment-currency",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:exit",
+    "toId": "payg:payg-terms-change",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:exit",
+    "toId": "payg:payg-refund",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:exit",
+    "toId": "payg:payg-inactive-account",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:terms:exit",
+    "toId": "payg:payg-end-record",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:frequency",
+    "toId": "payg:payg-frequency-fit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:frequency",
+    "toId": "payg:payg-irregular-fit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:frequency",
+    "toId": "payg:payg-spare-fit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:frequency",
+    "toId": "payg:payg-consumption-calendar",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:pack-sizing",
+    "toId": "payg:pack-size-choice",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:pack-sizing",
+    "toId": "payg:pack-topup-time",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:pack-sizing",
+    "toId": "payg:pack-combination",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:pack-sizing",
+    "toId": "payg:pack-large-task",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:comparison",
+    "toId": "payg:payg-monthly-sequence",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:comparison",
+    "toId": "payg:payg-with-main-plan",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:comparison",
+    "toId": "payg:payg-break-even",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:comparison",
+    "toId": "payg:payg-selection-table",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:verification",
+    "toId": "payg:payg-first-purchase-check",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:verification",
+    "toId": "payg:payg-unused-balance",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:verification",
+    "toId": "payg:payg-unexpected-spend",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:payg:fit:verification",
+    "toId": "payg:payg-main-site-handoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:task-inventory",
+    "toId": "high-data:heavy-task-inventory",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:task-inventory",
+    "toId": "high-data:large-file-workflow",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:task-inventory",
+    "toId": "high-data:build-artifacts",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:task-inventory",
+    "toId": "high-data:heavy-task-priority",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:capacity",
+    "toId": "high-data:quota-vs-throughput",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:capacity",
+    "toId": "high-data:finish-time",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:capacity",
+    "toId": "high-data:shared-bandwidth",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:capacity",
+    "toId": "high-data:long-run-baseline",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:bursts",
+    "toId": "high-data:peak-day-budget",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:bursts",
+    "toId": "high-data:batch-download",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:bursts",
+    "toId": "high-data:large-update-window",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:bursts",
+    "toId": "high-data:heavy-period-overlap",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:retries",
+    "toId": "high-data:large-retry-accounting",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:retries",
+    "toId": "high-data:resume-download",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:retries",
+    "toId": "high-data:file-integrity-vs-traffic",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:demand:retries",
+    "toId": "high-data:recovery-reserve",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:quota-selection",
+    "toId": "high-data:large-plan-checks",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:quota-selection",
+    "toId": "high-data:high-quota-multiplier",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:quota-selection",
+    "toId": "high-data:unlimited-claims",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:quota-selection",
+    "toId": "high-data:high-data-device-fit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:allocation",
+    "toId": "high-data:heavy-topup-vs-upgrade",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:allocation",
+    "toId": "high-data:multiple-pools",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:allocation",
+    "toId": "high-data:long-term-high-data",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:allocation",
+    "toId": "high-data:unused-large-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:acceptance",
+    "toId": "high-data:heavy-trial-test",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:acceptance",
+    "toId": "high-data:heavy-use-success",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:acceptance",
+    "toId": "high-data:peak-use-test",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:acceptance",
+    "toId": "high-data:heavy-evidence-summary",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:efficiency",
+    "toId": "high-data:heavy-duplicate-downloads",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:efficiency",
+    "toId": "high-data:sync-scope-control",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:efficiency",
+    "toId": "high-data:cache-savings-proof",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:high-data:plans:efficiency",
+    "toId": "high-data:heavy-review-cycle",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:active-days",
+    "toId": "occasional:active-days-model",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:active-days",
+    "toId": "occasional:zero-months",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:active-days",
+    "toId": "occasional:irregular-schedule",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:active-days",
+    "toId": "occasional:short-session-overhead",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:temporary",
+    "toId": "occasional:short-project-data",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:temporary",
+    "toId": "occasional:travel-checklist",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:temporary",
+    "toId": "occasional:oneoff-file-transfer",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:temporary",
+    "toId": "occasional:short-term-expiry",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:backup",
+    "toId": "occasional:backup-task-scope",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:backup",
+    "toId": "occasional:backup-readiness",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:backup",
+    "toId": "occasional:backup-not-duplicate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:backup",
+    "toId": "occasional:backup-failure-plan",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:seasonal",
+    "toId": "occasional:weekend-pattern",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:seasonal",
+    "toId": "occasional:seasonal-use",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:seasonal",
+    "toId": "occasional:intermittent-study",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:patterns:seasonal",
+    "toId": "occasional:pattern-change",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:account-check",
+    "toId": "occasional:idle-quota-check",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:account-check",
+    "toId": "occasional:idle-rule-change",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:account-check",
+    "toId": "occasional:reminder-boundary",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:account-check",
+    "toId": "occasional:idle-data-privacy",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:lightweight-logging",
+    "toId": "occasional:lightweight-ledger",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:lightweight-logging",
+    "toId": "occasional:small-verification",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:lightweight-logging",
+    "toId": "occasional:returning-session",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:lightweight-logging",
+    "toId": "occasional:low-frequency-gaps",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:purchase-timing",
+    "toId": "occasional:low-first-payment",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:purchase-timing",
+    "toId": "occasional:buy-before-task",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:purchase-timing",
+    "toId": "occasional:low-cost-utilization",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:purchase-timing",
+    "toId": "occasional:idle-renew-decision",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:review",
+    "toId": "occasional:low-task-review",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:review",
+    "toId": "occasional:spare-upgrade-trigger",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:review",
+    "toId": "occasional:low-use-plan-brief",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:occasional:maintenance:review",
+    "toId": "occasional:case-not-general-rule",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:bitrate",
+    "toId": "video:video-bitrate-formula",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:bitrate",
+    "toId": "video:resolution-not-bitrate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:bitrate",
+    "toId": "video:video-audio-total",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:bitrate",
+    "toId": "video:video-rate-example",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:adaptive",
+    "toId": "video:adaptive-segments",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:adaptive",
+    "toId": "video:paused-buffering",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:adaptive",
+    "toId": "video:seek-preview",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:adaptive",
+    "toId": "video:video-max-quality",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:cache",
+    "toId": "video:video-replay-cache",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:cache",
+    "toId": "video:offline-vs-stream",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:cache",
+    "toId": "video:video-download-retry",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:cache",
+    "toId": "video:video-cache-boundary",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:multiscreen",
+    "toId": "video:multiscreen-usage",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:multiscreen",
+    "toId": "video:video-device-rate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:multiscreen",
+    "toId": "video:family-video-schedule",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:models:multiscreen",
+    "toId": "video:watch-rights-vs-traffic",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:tv-casting",
+    "toId": "video:casting-path",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:tv-casting",
+    "toId": "video:local-media",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:tv-casting",
+    "toId": "video:tv-background",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:tv-casting",
+    "toId": "video:casting-proxy-scope",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:live",
+    "toId": "video:live-stream-budget",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:live",
+    "toId": "video:video-call-directions",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:live",
+    "toId": "video:audio-only-mode",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:live",
+    "toId": "video:live-reconnect",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:schedule",
+    "toId": "video:video-month-plan",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:schedule",
+    "toId": "video:video-multiplier-budget",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:schedule",
+    "toId": "video:video-before-reset",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:schedule",
+    "toId": "video:video-low-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:verify",
+    "toId": "video:video-test-log",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:verify",
+    "toId": "video:video-panel-difference",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:verify",
+    "toId": "video:video-access-not-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:video:plans:verify",
+    "toId": "video:video-plan-handoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:text",
+    "toId": "ai:ai-text-traffic",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:text",
+    "toId": "ai:ai-streaming-output",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:text",
+    "toId": "ai:ai-history-loading",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:text",
+    "toId": "ai:ai-multiple-tabs",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:files",
+    "toId": "ai:ai-document-upload",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:files",
+    "toId": "ai:ai-reupload",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:files",
+    "toId": "ai:ai-compression",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:files",
+    "toId": "ai:ai-processing-wait",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:multimodal",
+    "toId": "ai:ai-image-result",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:multimodal",
+    "toId": "ai:ai-audio-session",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:multimodal",
+    "toId": "ai:ai-video-input",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:multimodal",
+    "toId": "ai:ai-media-downloads",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:coding",
+    "toId": "ai:ai-code-model-vs-tools",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:coding",
+    "toId": "ai:ai-build-retry",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:coding",
+    "toId": "ai:ai-local-remote",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:workloads:coding",
+    "toId": "ai:ai-plugin-background",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:tokens",
+    "toId": "ai:tokens-not-gb",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:tokens",
+    "toId": "ai:api-budget-not-network",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:tokens",
+    "toId": "ai:context-payload",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:tokens",
+    "toId": "ai:ai-cached-token",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:retries",
+    "toId": "ai:ai-retry-ledger",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:retries",
+    "toId": "ai:ai-timeout-stages",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:retries",
+    "toId": "ai:ai-automation-loop",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:retries",
+    "toId": "ai:ai-cancel-task",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:scope",
+    "toId": "ai:ai-browser-cli",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:scope",
+    "toId": "ai:ai-api-logging",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:scope",
+    "toId": "ai:ai-server-client",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:scope",
+    "toId": "ai:ai-attribution-gap",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:planning",
+    "toId": "ai:ai-use-month-plan",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:planning",
+    "toId": "ai:ai-reserve-scenario",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:planning",
+    "toId": "ai:ai-rate-limit-vs-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:ai:accounting:planning",
+    "toId": "ai:ai-plan-handoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:android",
+    "toId": "mobile:android-counter-start",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:android",
+    "toId": "mobile:android-cycle-settings",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:android",
+    "toId": "mobile:android-vpn-attribution",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:android",
+    "toId": "mobile:android-permissions",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:ios",
+    "toId": "mobile:ios-counter-scope",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:ios",
+    "toId": "mobile:ios-manual-baseline",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:ios",
+    "toId": "mobile:ipad-mixed-network",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:ios",
+    "toId": "mobile:ios-system-services",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:network-types",
+    "toId": "mobile:mobile-wifi-cellular",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:network-types",
+    "toId": "mobile:mobile-switch-task",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:network-types",
+    "toId": "mobile:roaming-vs-proxy",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:network-types",
+    "toId": "mobile:phone-counter-total",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:hotspot",
+    "toId": "mobile:hotspot-double-count",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:hotspot",
+    "toId": "mobile:hotspot-proxy-scope",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:hotspot",
+    "toId": "mobile:hotspot-device-breakdown",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:counters:hotspot",
+    "toId": "mobile:hotspot-carrier-bill",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:background",
+    "toId": "mobile:phone-background-data",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:background",
+    "toId": "mobile:phone-media-backup",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:background",
+    "toId": "mobile:phone-data-saving",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:background",
+    "toId": "mobile:phone-update-policy",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:app-scope",
+    "toId": "mobile:phone-app-path",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:app-scope",
+    "toId": "mobile:phone-video-ai-task",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:app-scope",
+    "toId": "mobile:phone-retry-battery",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:app-scope",
+    "toId": "mobile:phone-local-playback",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:cycle-management",
+    "toId": "mobile:phone-reset-alignment",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:cycle-management",
+    "toId": "mobile:phone-quota-alert",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:cycle-management",
+    "toId": "mobile:phone-low-balance",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:cycle-management",
+    "toId": "mobile:phone-log-frequency",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:migration",
+    "toId": "mobile:phone-migration-counters",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:migration",
+    "toId": "mobile:phone-backup-double-use",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:migration",
+    "toId": "mobile:phone-ledger-export",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:mobile:management:migration",
+    "toId": "mobile:phone-old-device-exit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:identity",
+    "toId": "devices:devices-vs-connections",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:identity",
+    "toId": "devices:one-device-many-apps",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:identity",
+    "toId": "devices:shared-account-rules",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:identity",
+    "toId": "devices:device-aliases",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:deduplication",
+    "toId": "devices:device-sum-safe",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:deduplication",
+    "toId": "devices:router-client-duplicate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:deduplication",
+    "toId": "devices:shared-resource-observation",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:deduplication",
+    "toId": "devices:duplicate-session-id",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:pools",
+    "toId": "devices:account-pool-mapping",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:pools",
+    "toId": "devices:multiple-accounts",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:pools",
+    "toId": "devices:pool-transfer-unknown",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:pools",
+    "toId": "devices:route-change-ownership",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:time-scope",
+    "toId": "devices:cross-device-timezone",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:time-scope",
+    "toId": "devices:clock-drift-devices",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:time-scope",
+    "toId": "devices:partial-device-data",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:aggregation:time-scope",
+    "toId": "devices:shared-period-reset",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:task-sharing",
+    "toId": "devices:family-quota-plan",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:task-sharing",
+    "toId": "devices:work-personal-split",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:task-sharing",
+    "toId": "devices:team-data-consent",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:task-sharing",
+    "toId": "devices:shared-quota-reserve",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:concurrency",
+    "toId": "devices:concurrent-not-volume",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:concurrency",
+    "toId": "devices:simultaneous-test",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:concurrency",
+    "toId": "devices:background-concurrency",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:concurrency",
+    "toId": "devices:device-limit-evidence",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:allocation-rules",
+    "toId": "devices:usage-allocation-method",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:allocation-rules",
+    "toId": "devices:unknown-share",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:allocation-rules",
+    "toId": "devices:allocation-after-change",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:allocation-rules",
+    "toId": "devices:allocation-report",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:lifecycle",
+    "toId": "devices:new-device-checklist",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:lifecycle",
+    "toId": "devices:retire-device",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:lifecycle",
+    "toId": "devices:device-pool-review",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:devices:allocation:lifecycle",
+    "toId": "devices:device-handoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:basis",
+    "toId": "reconcile:reconcile-first-step",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:basis",
+    "toId": "reconcile:reconcile-layer",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:basis",
+    "toId": "reconcile:reconcile-direction",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:basis",
+    "toId": "reconcile:reconcile-unit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:timing",
+    "toId": "reconcile:reconcile-cumulative",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:timing",
+    "toId": "reconcile:reconcile-lag",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:timing",
+    "toId": "reconcile:reconcile-cutoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:timing",
+    "toId": "reconcile:reconcile-late-data",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:components",
+    "toId": "reconcile:reconcile-multiplier",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:components",
+    "toId": "reconcile:reconcile-retries",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:components",
+    "toId": "reconcile:reconcile-overhead",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:components",
+    "toId": "reconcile:reconcile-background",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:uncertainty",
+    "toId": "reconcile:reconcile-rounding",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:uncertainty",
+    "toId": "reconcile:reconcile-unknown",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:uncertainty",
+    "toId": "reconcile:reconcile-duplicate",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:alignment:uncertainty",
+    "toId": "reconcile:reconcile-range",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:evidence",
+    "toId": "reconcile:reconcile-small-test",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:evidence",
+    "toId": "reconcile:reconcile-evidence-pack",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:evidence",
+    "toId": "reconcile:reconcile-control-devices",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:evidence",
+    "toId": "reconcile:reconcile-snapshot-chain",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:communication",
+    "toId": "reconcile:reconcile-support-question",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:communication",
+    "toId": "reconcile:reconcile-support-answer",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:communication",
+    "toId": "reconcile:reconcile-conflicting-answer",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:communication",
+    "toId": "reconcile:reconcile-no-response",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:adjustments",
+    "toId": "reconcile:reconcile-adjustment",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:adjustments",
+    "toId": "reconcile:reconcile-refund-entry",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:adjustments",
+    "toId": "reconcile:reconcile-reopen-report",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:adjustments",
+    "toId": "reconcile:reconcile-reset-compensation",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:reporting",
+    "toId": "reconcile:reconcile-final-report",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:reporting",
+    "toId": "reconcile:reconcile-not-fraud-proof",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:reporting",
+    "toId": "reconcile:reconcile-repeat-check",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:reconcile:resolution:reporting",
+    "toId": "reconcile:reconcile-choice-handoff",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:units",
+    "toId": "knowledge:kb-kib-glossary",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:units",
+    "toId": "knowledge:rate-volume-distinction",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:units",
+    "toId": "knowledge:raw-vs-display",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:units",
+    "toId": "knowledge:counter-vs-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:entitlements",
+    "toId": "knowledge:billing-service-quota",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:entitlements",
+    "toId": "knowledge:monthly-payg-terms",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:entitlements",
+    "toId": "knowledge:bonus-entitlement",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:entitlements",
+    "toId": "knowledge:unused-not-savings",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:statistics",
+    "toId": "knowledge:mean-median-usage",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:statistics",
+    "toId": "knowledge:observed-window",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:statistics",
+    "toId": "knowledge:scenario-not-probability",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:statistics",
+    "toId": "knowledge:coverage-and-missing",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:value",
+    "toId": "knowledge:quota-utilization",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:value",
+    "toId": "knowledge:unit-cost-definition",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:value",
+    "toId": "knowledge:cash-vs-allocation",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:measurement:value",
+    "toId": "knowledge:cheapest-not-fit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:roles",
+    "toId": "knowledge:client-core-service",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:roles",
+    "toId": "knowledge:proxy-scope-basics",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:roles",
+    "toId": "knowledge:local-vs-wan",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:roles",
+    "toId": "knowledge:shared-exit",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:transport",
+    "toId": "knowledge:tcp-retry-measurement",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:transport",
+    "toId": "knowledge:udp-quic-boundaries",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:transport",
+    "toId": "knowledge:tls-payload",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:transport",
+    "toId": "knowledge:compression-boundary",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:routing",
+    "toId": "knowledge:dns-not-entire-traffic",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:routing",
+    "toId": "knowledge:ipv4-ipv6-accounting",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:routing",
+    "toId": "knowledge:rule-coverage",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:routing",
+    "toId": "knowledge:network-diagnosis-not-volume",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:trust",
+    "toId": "knowledge:claim-evidence-level",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:trust",
+    "toId": "knowledge:private-ledger-data",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:trust",
+    "toId": "knowledge:local-storage-not-guarantee",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  },
+  {
+    "fromId": "cluster:knowledge:network:trust",
+    "toId": "knowledge:source-update-rules",
+    "relation": "parent-child",
+    "reason": "集群归属单篇文章"
+  }
+]
