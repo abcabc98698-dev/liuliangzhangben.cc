@@ -31,7 +31,7 @@ export default defineConfig({
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/avatar.png' }],
     ['meta', { name: 'theme-color', content: '#1e293b' }],
     ['meta', { name: 'format-detection', content: 'telephone=no' }],
   ],
@@ -56,7 +56,7 @@ export default defineConfig({
   },
   themeConfig: {
     siteTitle: '流量账本',
-    logo: '/logo.svg',
+    logo: '/avatar.png',
     nav: [
       { text: '首页', link: '/' },
       { text: '用量记录', link: '/records/' },
