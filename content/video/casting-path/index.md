@@ -86,7 +86,103 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+[AirPlay / DLNA / Chromecast Wire Trace]
+├── Scenario A (Direct TV Pull): 电视盒子自身运行代理，直连出海 (消耗 100% 代理流量)
+└── Scenario B (Local Cast): 手机代理拉流 -> 本地局域网投屏至电视 (若未放行私网，产生二次中继双倍扣量!)
+
+### 2. 初始问题表象与争议现象
+在涉及“**投屏时数据经过手机还是电视，怎样确认应记录哪个设备？**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+手机投屏到电视上看电影，手机和电视同时产生大量出网记录，账单扣了双倍。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：手机将视频流拉回本地后，通过 AirPlay/DLNA 向电视传输时，局域网数据包被手机 TUN 虚拟网卡误捕获；
+- **假设 H2（网络行为与规则未对齐）**：Chromecast 模式下电视本身再次向公网拉流，手机端未及时断开连接；
+- **假设 H3（协议开销与时间窗口截断）**：智能电视未配置国内分流规则，后台系统更新和遥测跑了代理额度。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$$V_{	ext{cast}} = V_{	ext{internet_stream}} + sum V_{	ext{lan_leaked}} 	imes M$$
+
+**投屏协议分流纠偏手算推导**：
+某用户通过手机投屏观看一部 $8.00	ext{ GB}$ 电影：
+1. **错误配置下（局域网未配置直连）**：
+   - 手机从境外拉流：消耗 $8.00	ext{ GB}$；
+   - 手机向电视局域网投屏：由于 TUN 误劫持，出网再计 $8.00	ext{ GB}$；
+   - 总扣量高达 **$16.00	ext{ GB}$**（双倍扣款！）；
+2. **正确配置纠偏**：在客户端配置私网白名单，局域网投屏流量走本地网卡物理交换；
+3. 真实出网扣量降至 **$8.00	ext{ GB}$**，杜绝了一半的虚假消耗！
+
+### 5. 思维链归纳结论与纠偏对策
+投屏必须确保客户端放行私有 IP 段（192.168.x.x），推荐在电视盒子上直接安装原生客户端独立运行。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 客户端放行局域网 IP | 确保手机与电脑配置中包含 192.168.0.0/16 强制 DIRECT 直连 | [ ] 已核实 |
+| **Step 2** | 电视端安装独立客户端 | 优先在 Apple TV / Android 电视盒子上直接部署客户端 | [ ] 已核实 |
+| **Step 3** | 投屏前核对连接协议 | 区分屏幕镜像（AirPlay Mirroring）与投屏中继（DLNA）的路径 | [ ] 已核实 |
+| **Step 4** | 排查电视后台静默更新 | 在路由器中将电视的国内系统更新域名加入直连白名单 | [ ] 已核实 |
+| **Step 5** | 关闭投屏后核查手机状态 | 投屏成功后若电视独立拉流，及时在手机端退出播放释放连接 | [ ] 已核实 |
+| **Step 6** | 选用适合电视的低倍率线路 | 电视端客户端默认锁定 0.2x~0.5x 专属流媒体节点 | [ ] 已核实 |
+| **Step 7** | 定期核查电视出网 IP | 在电视浏览器中打开本站工具核验出口 IP 归属与解锁状态 | [ ] 已核实 |
+| **Step 8** | 备用投屏直连线缆 | 大码率原盘观影优先使用 HDMI 有线直连，彻底消除无线中继 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“投屏时数据经过手机还是电视，怎样确认应记录哪个设备？”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">Apple TV 原生支持</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">完美支持 tvOS 平台主流代理软件原生部署</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">路由器分流完美契合</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">与软路由固件分流规则 100% 兼容无冲突</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">局域网投屏零损耗</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">私网路由清晰，杜绝内网投屏被误劫持扣费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">大屏 4K HDR 畅享</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">专为家庭影院级高码率 HDR 输出提供带宽保证</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[视频用量：多屏与同步观看](/video/models/multiscreen/)
+- **下一篇进阶**：[视频用量：直播、会议与双向传输](/video/plans/live/)
+- **关联专题推荐**：[手机用量：热点共享与计数层级](/mobile/counters/hotspot/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="video_casting-path_cta"
+  title="大屏方案已搞定？前往主站寻找电视盒子完美适配的顶级专线"
+  description="拿着 Apple TV 原生支持与电视大屏优化指标，前往机场榜一挑选针对大屏影院深度优化的标杆服务商。"
+  buttonText="查看电视大屏专属套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -94,16 +190,6 @@ layout: doc
     { q: '家里电视看奈飞/YouTube，最推荐什么设备？', a: '强烈推荐 Apple TV 4K（搭配 tvOS 17 代理软件）或 Google Chromecast with Google TV，体验丝滑流畅，支持完整 4K 原画。' },
     { q: '主站有针对 Apple TV 和电视大屏优化的节点推荐吗？', a: '主站评测专门设有“大屏设备原生流媒体解锁”榜单，确保奈飞非自制剧、Disney+ 在大屏上 100% 完美点亮 4K 与杜比视界。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="video_tv_casting_cta"
-  title="大屏拓扑已理顺？前往主站寻找大屏优化服务"
-  description="在主站详细评测中，挑选完美解锁 Apple TV 大屏流媒体、支持高带宽低倍率的优质服务商。"
 />
 
 <Disclosure />

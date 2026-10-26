@@ -90,7 +90,104 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+[Multiscreen Concurrency Wire Trace]
+├── Screen 1 (Living Room TV 4K): 18.0 Mbps (~8.1 GB/h)
+├── Screen 2 (Bedroom iPad 1080p): 5.5 Mbps (~2.5 GB/h)
+└── Screen 3 (Mobile Phone 720p): 2.5 Mbps (~1.1 GB/h)
+    └── Household Combined Bandwidth = 26.0 Mbps, Combined Consumption = 11.7 GB/h
+
+### 2. 初始问题表象与争议现象
+在涉及“**电视和手机播放相同节目时，怎样分别记录实际码率与用量？**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+周末家庭 3 台设备同时看视频，一个晚上跑掉了近 50GB，且频繁有一台设备被掐断网络。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务商对单一订阅限制了最大公网在线 IP 数（通常 2~3 个），多屏分属不同网络时触发封锁；
+- **假设 H2（网络行为与规则未对齐）**：多屏流量在时间轴上形成 100% 重叠的吞吐叠加；
+- **假设 H3（协议开销与时间窗口截断）**：家庭路由器网关 CPU 在处理多路 4K 实时解密时发生过载，引发丢包重传。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$$Q_{	ext{household}} = sum_{s=1}^K V_{	ext{screen}, s} = sum_{s=1}^K R_s 	imes 0.45 	imes T_s$$
+
+**家庭周末多屏观影手算推导**：
+某周末全家 3 块屏幕同时观看 3 小时：
+1. **电视大屏（4K HDR，25Mbps）**：$25.0 	imes 0.45 	imes 3.0 = 33.75	ext{ GB}$；
+2. **平板（1080p，5Mbps）**：$5.0 	imes 0.45 	imes 3.0 = 6.75	ext{ GB}$；
+3. **手机（720p，2.5Mbps）**：$2.5 	imes 0.45 	imes 3.0 = 3.375	ext{ GB}$；
+4. **全家 3 小时物理消耗累加**：$33.75 + 6.75 + 3.38 = 43.88	ext{ GB}$；
+5. **倍率对冲**：若连接 1.0x 节点，一晚上扣除 $44	ext{ GB}$（普通套餐直接见底）；若在软路由中配置视频策略组走 0.2x 节点，实际扣费仅为 **$8.78	ext{ GB}$**！
+
+### 5. 思维链归纳结论与纠偏对策
+多屏家庭必须在软路由层做集中统一分流，将全家影视流量全部归入 0.2x~0.5x 节点，并查验服务商允许的并发 IP 上限。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验最大在线设备限制 | 确认服务商订阅支持的同时在线 IP 数满足全家屏幕数量 | [ ] 已核实 |
+| **Step 2** | 软路由网关统一接管 | 在路由器层开启透明代理，避免每个屏幕独立连接消耗多 IP | [ ] 已核实 |
+| **Step 3** | 为各屏幕分配带宽配额 | 在路由器中对智能电视与移动端设置最高带宽限制，防止抢网 | [ ] 已核实 |
+| **Step 4** | 全家视频锁定低倍率 | 路由器分流规则中将全家视频流量统一路由至 0.2x 经济节点 | [ ] 已核实 |
+| **Step 5** | 核验路由器 CPU 解密负载 | 多路 4K 并发时查看软路由 CPU 占用率，防止硬件过热丢包 | [ ] 已核实 |
+| **Step 6** | 为各屏幕分别设置默认画质 | 电视设置 4K，移动设备强制 1080p，兼顾画质与额度 | [ ] 已核实 |
+| **Step 7** | 设立家庭月度观影池 | 为家庭娱乐单独划分出 150G~300G 专项额度池 | [ ] 已核实 |
+| **Step 8** | 非观影时段休眠电视盒子 | 电视不用时彻底切断电源或进入深度休眠，杜绝后台静默跑量 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“电视和手机播放相同节目时，怎样分别记录实际码率与用量？”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">无严苛在线 IP 限制</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">支持家庭多终端（>= 5 台设备）同时并发在线</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">全家千兆并发带宽</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">总带宽充足，多屏 4K 同时播放互不卡顿抢速</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">流媒体专属多节点</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">提供多个独立的低倍率流媒体线路，支持分流分散</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">家庭大额度套餐</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">提供 500GB 至 1TB 超大容量高性价比家庭套餐</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[视频用量：缓存、重播与下载](/video/video-replay-cache/)
+- **下一篇进阶**：[视频用量：电视、投屏与本地传输](/video/casting-path/)
+- **关联专题推荐**：[设备数量：分配、并发与共同使用](/devices/allocation/concurrency/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="video_video-device-rate_cta"
+  title="家庭多屏需求已梳理？前往主站寻找支持多端并发的大额方案"
+  description="拿着多设备并发与超大容量需求指标，前往机场榜一挑选设备限制宽松、家庭口碑优秀的标杆服务商。"
+  buttonText="查看家庭多屏专属大额套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -98,16 +195,6 @@ layout: doc
     { q: '全家都要看视频，买多大套餐才够用？', a: '对于三口及以上家庭，建议直接选购 500GB 至 1TB 的大额家庭套餐，或选择不限设备数的大容量品牌。' },
     { q: '主站有专门适合家庭多屏并发的套餐评测吗？', a: '主站评测设有“多设备并发支持度”与“家庭流媒体合租友好度”专项指标，为您筛选不限连接数、带宽充沛的顶级家庭服务商。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="video_multiscreen_cta"
-  title="多屏模型已掌握？前往主站寻找家庭大额方案"
-  description="在主站详细评测中，挑选不限并发设备数、带宽充盈、专为多屏家庭定制的超大流量服务商。"
 />
 
 <Disclosure />

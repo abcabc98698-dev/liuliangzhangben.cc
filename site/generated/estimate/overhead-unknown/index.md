@@ -76,7 +76,100 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+[TUN Split Tunneling Routing Trace] Routing Table Rule Match:
+├── Dest: 14.215.177.38 (Baidu CN) -> Match DIRECT -> Real NIC out (0 Proxy Used)
+├── Dest: 192.168.1.50 (Home NAS) -> Match DIRECT -> Real NIC out (0 Proxy Used)
+└── Dest: 104.244.42.1 (X/Twitter) -> Match PROXY -> TUN Virtual NIC out (Proxy Billed)
+
+### 2. 初始问题表象与争议现象
+在涉及“**协议开销没有实际测量时，怎样提供假设范围而不是固定加百分比？**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+开启全局代理后，电脑向家庭 NAS 备份照片，导致当月代理额度一天内被全部扣光。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：客户端 TUN 虚拟网卡未配置私网网段保留规则（RFC 1918），将局域网内网流量误判为公网出站；
+- **假设 H2（网络行为与规则未对齐）**：国内大流量应用（如网易云音乐、Bilibili、网盘）命中 PROXY 规则，白白消耗境外加密流量；
+- **假设 H3（协议开销与时间窗口截断）**：DNS 污染引发分流失效，本应直连的域名因解析出境外 IP 被迫走代理。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$$V_{	ext{proxy_real}} = V_{	ext{nic_total}} - V_{	ext{direct_cn}} - V_{	ext{lan_nas}}$$
+
+**局域网高吞吐分流排查手算实录**：
+1. 某用户全天网卡出网总流量 $V_{	ext{nic}} = 65.00	ext{ GB}$；
+2. 逐层排查流量构成：本地 NAS 文件同步 $42.00	ext{ GB}$，国内视频直连 $18.00	ext{ GB}$，境外加速业务 $5.00	ext{ GB}$；
+3. **分流配置纠偏**：在客户端配置 `geoip:private` 强制 DIRECT 规则后，代理出网量瞬间降至真实的 **$5.00	ext{ GB}$**，保全了 $60.00	ext{ GB}$ 额度！
+
+### 5. 思维链归纳结论与纠偏对策
+必须在客户端中配置严格的 RFC 1918 私网直连与国内域名 GeoIP 白名单，确保只有刚性出海流量才被代理接管。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 配置私网保留规则 | 确认配置包含 10.0.0.0/8、172.16.0.0/12、192.168.0.0/16 强制直连 | [ ] 已核实 |
+| **Step 2** | 国内域名分流核验 | 检查 China 规则集，确保国内视频与下载应用命中 DIRECT | [ ] 已核实 |
+| **Step 3** | 排查 NAS 局域网备份 | NAS 备份或家庭共享时查看客户端活动连接，确认走本地真实网卡 | [ ] 已核实 |
+| **Step 4** | 防范 Fake-IP 泄漏 | 合理配置 DNS 分流模式，杜绝内网域名被分配 Fake-IP 劫持 | [ ] 已核实 |
+| **Step 5** | 审查系统全局代理开关 | 仅在必要时开启 TUN 全局模式，日常推荐使用规则分流模式 | [ ] 已核实 |
+| **Step 6** | 监控未知进程外联 | 在客户端连接面板审查有无异常进程占用代理带宽 | [ ] 已核实 |
+| **Step 7** | 排除云盘同步应用 | 将百度网盘、阿里云盘等国内存储工具加入直连绕过名单 | [ ] 已核实 |
+| **Step 8** | 定期更新分流规则库 | 每月更新 GeoIP 与 GeoSite 数据库，保障最新国内域名精准直连 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“协议开销没有实际测量时，怎样提供假设范围而不是固定加百分比？”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">规则分流适配度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">100% 适配主流客户端分流规则集 (Clash/Sing-box)</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">纯净出海通道</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">专注境外优化加速，国内流量绝不绕路</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">DNS 解析低时延</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">智能双栈 DNS 解析，无污染且响应延迟 < 20ms</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">无冗余节点劫持</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">节点路由纯净，支持按需策略组灵活调度</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[流量估算：速率与容量换算](/estimate/models/unit-rate/)
+- **下一篇进阶**：[流量估算：任务组合与周期分配](/estimate/forecast/composition/)
+- **关联专题推荐**：[知识百科：解析、分流与设备环境](/knowledge/network/routing/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="estimate_overhead-unknown_cta"
+  title="分流边界已搞清？前往主站寻找规则兼容性优秀的标杆服务"
+  description="拿着精准分流与纯净路由指标，前往机场榜一查看针对分流规则优化完善、绝不乱跑流量的优质服务商。"
+  buttonText="查看高分流精度套餐比对 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -84,16 +177,6 @@ layout: doc
     { q: '为什么同一文件下载，代理客户端显示的流量比浏览器下载面板大？', a: '浏览器只显示文件的实际 Payload（净数据），而客户端统计的是包含 TCP 握手报头、TLS 协商记录、分段重传及代理封装的完整物理出网流量。' },
     { q: '开启 DNS 防污染后，DNS 查询会消耗很多流量吗？', a: '常规 DNS 请求单次仅几百字节，一个月几十万次查询通常也不超过 50MB~100MB，对大套餐而言影响微乎其微。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/compare/"
-  campaign="quota_rules"
-  slug="estimate_traffic_scope_cta"
-  title="分流与范围理顺？前往主站选择优质分流节点"
-  description="对照清晰的分流需求，在主站评测中挑选规则兼容性好、低丢包的可靠服务商。"
 />
 
 <Disclosure />

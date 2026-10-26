@@ -116,6 +116,7 @@ for (let i = 0; i < keys.length; i++) {
     }
 
     if (jaccard > 0.4) {
+      console.log(`[HIGH PAIR] ${artA.id} vs ${artB.id} (${artA.category}): ${(jaccard * 100).toFixed(2)}%`);
       highPairs.push({
         articleA: artA.id,
         articleB: artB.id,

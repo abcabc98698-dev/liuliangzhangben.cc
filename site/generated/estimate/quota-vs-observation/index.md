@@ -85,7 +85,104 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+[Task Composition Timeline Model] Month-long Simulation:
+├── Task A (Dev/Git/API): Daily steady 0.8 GB * 22 workdays = 17.6 GB
+├── Task B (Video 1080p): Weekend 5.0 GB * 8 rest days = 40.0 GB
+└── Task C (Monthly Cloud Backup): 15.0 GB single event
+    └── Total Composite Budget = 17.6 + 40.0 + 15.0 = 72.6 GB (含多任务正交分布)
+
+### 2. 初始问题表象与争议现象
+在涉及“**手里有设备统计和服务账单两组数据，预测时应该选哪个作基线？**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户把每个单一应用的最大可能用量简单相加，得出几倍于实际需要的过剩预算。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：用户的注意力具有排他性，人在看视频时不可能同时进行高强度大文件下载；
+- **假设 H2（网络行为与规则未对齐）**：工作日流媒体受限，周末工作流减弱，多任务之间在时间轴上呈正交错峰分布；
+- **假设 H3（协议开销与时间窗口截断）**：未考虑不同任务所连接节点的倍率差异，简单求和抹杀了倍率红利。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$$Q_{	ext{composite}} = sum_{m=1}^K left( ar{q}_{m, 	ext{work}} 	imes D_{	ext{work}} + ar{q}_{m, 	ext{weekend}} 	imes D_{	ext{weekend}} ight) 	imes ar{M}_m$$
+
+**多任务组合错峰预算手算演算**：
+设某用户具有三类典型任务：
+1. **任务 A（办公/AI）**：$(1.2 	imes 22 + 0.2 	imes 8) 	imes 1.0 = 28.00	ext{ GB}$；
+2. **任务 B（4K追剧）**：$(0.5 	imes 22 + 6.0 	imes 8) 	imes 0.5 = 29.50	ext{ GB}$；
+3. **任务 C（代码依赖包更新）**：每月一次 $8.00	ext{ GB}$；
+4. **合成真实总扣量**：$Q_{	ext{total}} = 28.00 + 29.50 + 8.00 = 65.50	ext{ GB}$；
+5. **对比盲目相加**：若按单项峰值简单相加 $(1.2 + 6.0 + 8.0) 	imes 30 = 456	ext{ GB}$，错峰组合预算避免了超 $85%$ 的浪费！
+
+### 5. 思维链归纳结论与纠偏对策
+多任务估算必须基于实际日历与时间排他性原则，将不同任务与不同节点倍率分别配对计算后再行合成。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 列出全部独立任务清单 | 将出海行为拆解为办公、流媒体、AI、系统更新等独立条目 | [ ] 已核实 |
+| **Step 2** | 区分工作日与假日权重 | 为每个任务分别标注工作日日均与休息日日均消耗 | [ ] 已核实 |
+| **Step 3** | 绑定各任务对应节点倍率 | 流媒体任务乘 0.5x，日常办公乘 1.0x，专线会议乘 2.0x | [ ] 已核实 |
+| **Step 4** | 考虑注意力排他性 | 剔除同一时间段内不可能并发执行的多任务重叠量 | [ ] 已核实 |
+| **Step 5** | 加入月度周期性孤立任务 | 对每月执行一次的大型同步或备份单列固定配额 | [ ] 已核实 |
+| **Step 6** | 按月度日历实际天数计算 | 根据当月具体工作日与休假日天数计算，不统一乘以 30 | [ ] 已核实 |
+| **Step 7** | 设立 15% 综合浮动缓冲 | 在多任务合成总值上追加 15% 弹性余量应对临时变化 | [ ] 已核实 |
+| **Step 8** | 月末按任务模块对比复核 | 月底将实际账单按任务模块拆解比对，优化各条目参数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“手里有设备统计和服务账单两组数据，预测时应该选哪个作基线？”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">多场景综合承载</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">兼顾网页浏览、代码拉取与高码率流媒体</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">分流策略组支持</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">提供丰富的流媒体、AI 与直连策略组配置</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">多档位套餐容量</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">提供 60G、120G、200G 等精细化容量阶梯</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">灵活平价升档</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">支持中途补差价平滑升级至更高容量套餐</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[流量估算：接管范围与额外传输](/estimate/models/traffic-scope/)
+- **下一篇进阶**：[流量估算：波动、余量与极端情景](/estimate/forecast/scenarios/)
+- **关联专题推荐**：[视频用量：周期安排与可用额度](/video/plans/schedule/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="estimate_quota-vs-observation_cta"
+  title="多任务模型已成型？前往主站寻找综合表现优异的稳健套餐"
+  description="拿着多任务复合预算指标，前往机场榜一查看经过综合场景实测、各方面表现均衡的标杆服务商。"
+  buttonText="查看综合多场景适用套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -93,16 +190,6 @@ layout: doc
     { q: '如何快速估算家庭多成员的组合需求？', a: '将每位家庭成员视为一个独立的“任务组合子模型”，分别推算后叠加；若有共用电视，将电视单列为一个独立的集中任务节点。' },
     { q: '按量付费方案适合这种波峰波谷明显的组合吗？', a: '非常适合。按量方案不限当月清零，周末产生的突发用量只需在账户总池中按实际消耗扣除，不会因为自然月截断造成浪费。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="estimate_composition_cta"
-  title="复合模型已建好？前往主站匹配大额稳定套餐"
-  description="根据 150G~200G 档位的精准计算结果，在主站直接筛选高性价比的月付或季付服务。"
 />
 
 <Disclosure />

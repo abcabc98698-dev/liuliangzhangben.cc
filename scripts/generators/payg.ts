@@ -107,7 +107,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -115,16 +223,6 @@ layout: doc
     { q: '按量流量包用了一半，服务商跑路了怎么办？', a: '这是按量方案的最大商业风险。因此绝不能为了单价便宜而盲目购买 1000GB 甚至 2000GB 的巨型按量包，单次采购量以 1~2 年内能用完为宜。' },
     { q: '怎么在流量账本中记录按量套餐？', a: '在账本创建账户时选择“按量计费”，录入总采购额度与费用，账本会以资产倒计时的方式实时展示剩余额度与每日消耗速率。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_definitions_cta"
-  title="按量条款已掌握？前往主站寻找诚信按量服务商"
-  description="在主站透明评测中，查验各家按量服务商的真实保活细则、节点待遇与长期存活信誉。"
 />
 
 <Disclosure />
@@ -227,7 +325,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -235,16 +441,6 @@ layout: doc
     { q: '按量方案一次性买多大最划算？', a: '建议购买“刚好够用 6 到 12 个月”的规格。买太小单价贵，买太大资金沉淀风险高。' },
     { q: '在主站怎么筛选出计量精度高的按量服务商？', a: '在主站按量专题评测中，查阅“计量粒度与舍入规则”专项得分，优先选择支持字节级/KB级精确结算的服务商。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_purchase_units_cta"
-  title="计量单位已搞清？前往主站寻找精确计费服务"
-  description="在主站详细评测中，查验各家按量服务商的真实扣费粒度、进制标准与透明度。"
 />
 
 <Disclosure />
@@ -337,7 +533,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -345,16 +649,6 @@ layout: doc
     { q: '家里有多台设备，怎么用单设备的按量套餐？', a: '可以在家用软路由（如 OpenWrt）上统一运行代理客户端，对于服务商而言整栋房屋的所有设备在逻辑上仅占用 1 个路由端连接。' },
     { q: '主站评测有专门标注按量方案的设备限制吗？', a: '主站所有按量方案评测均明确标出“允许最大并发设备数”与“峰值限速档位”，一目了然。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_constraints_cta"
-  title="限制条件已核清？前往主站比较多并发按量方案"
-  description="在主站详细评测中，挑选不限速、支持多设备并发、节点池完全开放的高品质按量服务商。"
 />
 
 <Disclosure />
@@ -450,7 +744,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -458,16 +860,6 @@ layout: doc
     { q: '按量方案用不完，可以折价卖给别人吗？', a: '绝大多数系统不支持转让，但如果是自建多节点配置，可将订阅分给亲友共同使用以加速残值变现。' },
     { q: '主站有专门对服务商存活历史进行背书评测吗？', a: '主站设有“品牌运营周期与信誉年限”严格准入门槛，杜绝收录上线不足 1 年的快餐按量机场，全力保护用户资产安全。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_exit_cta"
-  title="风控退出已明晰？前往主站寻找老牌按量服务商"
-  description="在主站权威评测中，挑选运营 3 年以上、存活稳定、口碑卓越的老牌诚信按量品牌。"
 />
 
 <Disclosure />
@@ -562,7 +954,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -570,16 +1070,6 @@ layout: doc
     { q: '按量方案的低频使用，会不会导致订阅链接被服务商吊销？', a: '只要账户内有有效余额或流量，正规服务商绝不会吊销订阅；但仍建议每年至少登录一次后台。' },
     { q: '怎么估算自己到底适不适合按量方案？', a: '在本站“流量估算”中输入您的活跃天数，若计算出月利用率低于 40%，系统会自动建议您转向按量方案。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_frequency_cta"
-  title="使用频率已明确？前往主站匹配不限时方案"
-  description="在主站详细评测中，针对低频与间歇需求，直接挑选性价比与保活条款俱佳的按量服务商。"
 />
 
 <Disclosure />
@@ -679,7 +1169,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -687,16 +1285,6 @@ layout: doc
     { q: '怎么知道自己该不该补购了？', a: '在本站“按量方案”工具中，系统会根据您的消耗速度自动计算“剩余可用天数”，在可用天数少于 14 天时提醒您补购。' },
     { q: '遇到双十一特惠，可以囤大额按量包吗？', a: '最多只囤 1.5 年的用量！服务行业的变数极大，任何超过 2 年的远期配额囤积在本质上都是高风险投机。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_pack_sizing_cta"
-  title="规格已锁定？前往主站选购黄金按量包"
-  description="在主站详细评测中，挑选提供 100G~300G 黄金梯度、支持多包无缝累加的优质按量服务商。"
 />
 
 <Disclosure />
@@ -803,7 +1391,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -811,16 +1507,6 @@ layout: doc
     { q: '怎么在流量账本里同时管理月付和按量两个账户？', a: '本站账本支持多账户切换与聚合视图，你可以分别录入主力月付与备用按量，清晰掌握两者的扣量状态。' },
     { q: '主站有推荐适合做备用的优质按量服务商吗？', a: '主站专门设有“最佳容灾备用按量榜”，精选节点稳定、长期存活、无月租压力的顶级备用方案。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_comparison_cta"
-  title="架构已理顺？前往主站搭建双轨混合方案"
-  description="在主站权威评测中，一站式挑选主力超大带宽月付与备用长效按量服务商。"
 />
 
 <Disclosure />
@@ -924,7 +1610,115 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+\`\`\`text
+[PAYG Ledger Accounting] Micro-charging Balance Ledger:
+├── Purchase Balance: 500.00 GB (No Expiration / 不限时)
+├── Minimum Deduct Block: 1.00 MB Rounding (不满 1MB 按 1MB 扣除)
+├── Inactivity Expiration Clause: 180 Days No-traffic Trigger (账户冻结规则)
+└── Effective Cost Frontier:
+    └── If Monthly Usage < 15 GB -> PAYG 综合成本显著低于固定月付订阅！
+\`\`\`
+- **最小扣量计费粒度（Billing Block）**：按量计费系统通常设置 1MB 向上取整边界。短时间内频繁断开重连会导致微小连接被反复按 1MB 截断扣费。
+- **保活与沉没成本权衡**：无到期日套餐通常包含“连续 N 天无任何连接自动冻结”的休眠条款。
+
+### 2. 初始问题表象与争议现象
+在涉及“**${node.title}**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户买了 500G 不限时按量套餐作为备用，半年后打开发现额度被清零；或者发现每次只查一次资料，余额扣减速度远快于预期。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：服务条款隐藏了“连续 180 天未活动注销账户”的休眠维护条款；
+- **假设 H2（网络行为与规则未对齐）**：服务商计费网关采用了 1MB 向上取整的计费块（Billing Block），高频短连接放大了结算损耗；
+- **假设 H3（协议开销与时间窗口截断）**：按量方案默认调用了高倍率专线节点，加速了额度资产的折损。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$C_{\text{eff}} = \frac{P_{\text{package}}}{Q_{\text{total}}} + \frac{N_{\text{sessions}} \times \delta_{\text{rounding}}}{Q_{\text{total}}}$
+
+**按量 vs 月付经济性平衡点手算推导**：
+设某按量方案为：$100\text{ 元} / 500\text{ GB}$（折合单价 $0.20\text{ 元/GB}$，不限时）；
+常规月付套餐为：$15\text{ 元/月}$（每月 $80\text{ GB}$，月底清零）。
+1. **极低频轻度用户场景（月均 8 GB）**：
+   - 月付方案支出：一年 12 个月固定支出 $15 \times 12 = 180\text{ 元}$，累计消耗仅 $96\text{ GB}$，实际单位成本高达 $1.875\text{ 元/GB}$！
+   - 按量方案支出：消耗 $96\text{ GB}$ 仅扣除资产价值 $96 \times 0.20 = 19.20\text{ 元}$。
+   - **经济效益**：按量方案**节省开支近 90%**！
+2. **中高频用户场景（月均 50 GB）**：
+   - 月付方案支出：一年 12 个月仍为 $180\text{ 元}$；
+   - 按量方案支出：消耗 $600\text{ GB}$ 需要支付 $120\text{ 元}$。
+3. **经济学分水岭临界点**：
+   $Q_{\text{crossover}} = \frac{15\text{ 元}}{0.20\text{ 元/GB}} = 75\text{ GB/月}$
+   月均用量在 $75\text{ GB}$ 以下时，按量方案在数学上具有不可替代的压倒性性价比优势。
+
+### 5. 思维链归纳结论与纠偏对策
+低频与备用场景首选大容量按量方案；但必须每季度设置一次周期轻量连接打点，阻断休眠清零机制。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 查验无到期日真实性 | 查验服务商 TOS，确认是否具备“账户长期不活动自动注销”的隐藏条款 | [ ] 已核实 |
+| **Step 2** | 计费扣除最小粒度 | 明确服务商最小计费块大小（1KB、100KB 还是 1MB 向上截断） | [ ] 已核实 |
+| **Step 3** | 备用唤醒定期打点 | 在日历中设立每季度一次的自动化或手动轻量连接打点，防范账户休眠 | [ ] 已核实 |
+| **Step 4** | 严控节点出站倍率 | 按量套餐账户中尽量禁用 >1.5x 高倍率专线，避免资产被隐蔽加速扣除 | [ ] 已核实 |
+| **Step 5** | 单位成本临界点核算 | 根据月均消耗测算是否处于按量方案的经济优势区间（通常 <50GB/月） | [ ] 已核实 |
+| **Step 6** | 余额警戒通知设立 | 在控制台配置余额低于 20% 时的邮件提醒，防止突发任务断网 | [ ] 已核实 |
+| **Step 7** | 退出与退款条款查验 | 购买前阅读条款，明确未使用额度是否支持按比例退款或账户转让 | [ ] 已核实 |
+| **Step 8** | 多端公用并发约束 | 查验按量方案是否限制同时在线连接 IP 数 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“${node.title}”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">额度有效期承诺</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">真正无到期日限制，无强制月度最低消费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">单价透明度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">标称 GB 单价透明，无额外账户月租维护费</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">节点权限完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">按量用户享有与月付用户完全一致的优质节点接入权</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">计费粒度精细度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">计费块 <= 100KB，杜绝粗暴 1MB 截断损耗</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[按量方案：购买单位与有效条件](/payg/terms/definitions/)
+- **下一篇进阶**：[按量方案：用量适配与月付对比](/payg/fit/comparison/)
+- **关联专题推荐**：[低频使用：余额、有效期与账户复查](/occasional/maintenance/account-check/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="${node.id.replace(/[:\\/]/g, '_')}_cta"
+  title="按量逻辑已摸透？前往主站挑选真正无到期的可靠方案"
+  description="拿着明确的单价与有效期容差指标，前往机场榜一查看经过长期存续性验证、不限时按量方案口碑优秀的优质服务商。"
+  buttonText="查看高性价比按量套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -932,16 +1726,6 @@ layout: doc
     { q: '复盘发现实际扣量比客户端多很多，怎么回事？', a: '重点复查使用的节点倍率是否为 1.5x/2.0x，以及服务商是否实行双向计费把上传也算进去了。' },
     { q: '按量方案用完之后，必须要立即续购吗？', a: '完全不需要。这正是按量的优势所在——用完了可以随时停用，等下次有明确出行或大任务需求时再充值。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/pricing/"
-  campaign="quota_rules"
-  slug="payg_verification_cta"
-  title="验证流程已跑通？前往主站寻找严选按量服务"
-  description="在主站权威评测中，查验经过真实买前盲测与长期复盘追踪的优质白名单按量服务商。"
 />
 
 <Disclosure />

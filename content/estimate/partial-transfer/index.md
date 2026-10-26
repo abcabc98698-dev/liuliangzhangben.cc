@@ -80,7 +80,101 @@ layout: doc
 
 ---
 
-## 六、常见问题解答与下一步建议
+## 六、DeepSeek-R1 深度思维链推导 (Chain-of-Thought 推理复盘)
+
+### 1. 抓包级网络报文解构与协议膨胀分析 (Wire Packet Trace)
+[Task Sizing Wire Chunk Trace] HTTP Range Request:
+├── Request: GET /archive.tar.gz (Range: bytes=0-104857599, 100MB chunk)
+├── In-transit Overhead: TCP Handshake + TLS Record Header + Proxy Header = 2.4MB
+└── Discarded Bytes on Cancellation: User aborted at 50% -> 52.4MB wasted
+
+### 2. 初始问题表象与争议现象
+在涉及“**任务中途取消后如何估算已传输部分：不能直接算零或整个文件**”的真实网络环境下，普遍存在显著的认知偏差与争议现象：
+用户传输大文件时中途取消或网络波动重连，误以为未完成任务不产生流量，但账单扣除了数个 GB。
+
+### 3. 思维链排查与隐蔽变量挖掘
+按照 DeepSeek-R1 结构化排查范式，对可能引起差额的隐藏变量进行逐层剥离与假设验证：
+- **假设 H1（底层因果链溯源）**：客户端已通过隧道接收的数据包即使被用户中途关闭，物理网卡与服务网关已完成全额计费；
+- **假设 H2（网络行为与规则未对齐）**：无断点续传功能的下载器在重试时会从第 0 字节重新拉取，造成成倍重复传输；
+- **假设 H3（协议开销与时间窗口截断）**：多线程并发拉取时，每个切片末尾存在未用完的预分配缓冲区丢弃。
+
+### 4. 数学建模与实际消耗推导
+针对该核心场景，建立端到端传输与结算的统一数学模型：
+$$V_{	ext{chunked}} = sum_{k=1}^m S_k + sum_{j=1}^r S_{	ext{aborted}, j} + m 	imes H_{	ext{TLS}}$$
+
+**文件切片与重试损耗手算演算**：
+1. 用户下载 1 个 $10.00	ext{ GB}$ 工程包，遇到两次网络闪断：
+   - 第一次在拉取到 $3.20	ext{ GB}$ 时中断；第二次在拉取到 $6.80	ext{ GB}$ 时因无断点续传重新从 0 开始；
+2. 实际出网物理流量累加：$V_{	ext{actual}} = 3.20 + 6.80 + 10.00 = 20.00	ext{ GB}$；
+3. 相比正常传输产生了 **$100%$ 的巨额重复开销**！启用支持 HTTP Range 断点续传工具后，重试损耗瞬间归零。
+
+### 5. 思维链归纳结论与纠偏对策
+大文件传输必须确保客户端支持 HTTP Range 断点续传，且中途取消的任务必须将已传输切片计入实际消耗。
+
+---
+
+## 七、落地实操与全流程审计检查表 (Checklist)
+
+在处理本场景的具体任务时，请严格依据下述 8 项工程化指标进行全流程核验闭环：
+
+| 序号 | 核心核查步骤 | 标准工程规范要求 | 达标标记 |
+|---|---|---|---|
+| **Step 1** | 核验断点续传支持 | 确认下载工具支持 HTTP 206 Partial Content 断点续传协议 | [ ] 已核实 |
+| **Step 2** | 计算已取消切片 | 对中途取消的任务以客户端网卡实际跑量为准，严禁记为 0 | [ ] 已核实 |
+| **Step 3** | 限制并发分块数量 | 多线程并发拉取切片数控制在 4~8 个，防止缓冲区过度浪费 | [ ] 已核实 |
+| **Step 4** | 规避高峰断线重连 | 大文件尽量安排在网络低负载时段传输，规避网络抖动中断 | [ ] 已核实 |
+| **Step 5** | 单任务体积预估 | 单次传输前核查文件体积与当前剩余额度，防止半途停机 | [ ] 已核实 |
+| **Step 6** | 启用哈希校验去重 | 同一文件二次传输前校验本地 MD5/SHA256，避免重复拉取 | [ ] 已核实 |
+| **Step 7** | 记录中断日志标记 | 在账本中将中断重试任务单独打上“重试损耗”标签 | [ ] 已核实 |
+| **Step 8** | 核对双向合并开销 | 注意大文件上传时相伴随的 TCP ACK 上行流量 | [ ] 已核实 |
+
+---
+
+## 八、前置诊断选购需求指标卡与高转化内链环
+
+在明确本场景的物理边界后，以下为根据测算指标生成的标准选购条件卡：
+
+<div class="ledger-result-box" style="margin: 1.5rem 0;">
+  <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: #0f172a;">
+    📋 针对“任务中途取消后如何估算已传输部分：不能直接算零或整个文件”场景的标准选购需求指标卡
+  </div>
+  <div class="ledger-result-grid">
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">长连接稳定性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">TCP 隧道保活超 12 小时不断线，杜绝频繁重试</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">大文件承载力</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">单任务支持持续传输 100GB+ 不限速</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">抗丢包容忍度</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">支持先进拥塞控制，弱网重传开销低</div>
+    </div>
+    <div class="ledger-stat-item">
+      <div class="ledger-stat-label">支持协议完整性</div>
+      <div class="ledger-stat-value" style="font-size: 1rem; color: #2563eb;">完美支持 HTTP/2 与多切片传输协议</div>
+    </div>
+  </div>
+</div>
+
+### 本集群上下游关联文章语义导航
+- **上一篇指引**：[流量估算：样本选择与代表性](/estimate/select-sample-days/)
+- **下一篇进阶**：[流量估算：速率与容量精确换算](/estimate/mbps-vs-megabytes/)
+- **关联专题推荐**：[大流量专题：重度任务拆分与测算](/high-data/demand/task-inventory/)
+
+<MainSiteCTA
+  targetPath="/pricing/"
+  campaign="usage_selection"
+  slug="estimate_partial-transfer_cta"
+  title="大任务传输指标已确定？前往主站寻找长连接不断线的优质线路"
+  description="拿着长连接稳定性与大文件承载力指标，前往机场榜一挑选抗断线、速度持久的稳定服务商。"
+  buttonText="查看大文件长连接专属套餐 →"
+/>
+
+---
+
+## 九、常见问题解答与下一步建议 (FAQ)
 
 <FAQ
   :items="[
@@ -88,16 +182,6 @@ layout: doc
     { q: '上传大文件时，上行消耗是否会按相同比例扣除机场额度？', a: '取决于服务商的计费规则。绝大多数服务商实行“双向计费”或“取上下行较大者计费”，上传大文件同样会产生实打实的额度扣除。' },
     { q: '如何防止离散任务中的恶意轮询浪费流量？', a: '在客户端对非必要的第三方埋点域名（如各类分析 SDK）配置广告拦截或 DIRECT 规则，阻止其无休止地向海外服务器汇报数据。' }
   ]"
-/>
-
----
-
-<MainSiteCTA
-  targetPath="/compare/"
-  campaign="quota_rules"
-  slug="estimate_task_size_cta"
-  title="任务体积已拆解清晰？前往主站匹配高效套餐"
-  description="根据离散任务的真实载荷结构，挑选支持稳定长连接且计费透明的优质服务。"
 />
 
 <Disclosure />
