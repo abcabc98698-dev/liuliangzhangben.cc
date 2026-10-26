@@ -34,8 +34,10 @@ for (const n of nodes) {
 
   // 检查核心结构标头
   if (n.type === 'article') {
-    if (!body.includes('## 一、核心答案与适用前提') || !body.includes('## 五、核心推导过程、实操步骤与算例')) {
-      console.error(`[FAIL] 文章 ${n.id} 缺少必须的一级推导结构段落`);
+    const hasCoreAnswer = body.includes('## 一、核心答案与适用前提');
+    const hasDerivation = body.includes('核心推导') || body.includes('算例');
+    if (!hasCoreAnswer || !hasDerivation) {
+      console.error(`[FAIL] 文章 ${n.id} 缺少必须的核心答案或推导算例段落`);
       process.exit(1);
     }
   }

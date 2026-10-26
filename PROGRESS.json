@@ -62,6 +62,8 @@
       "status": "COMPLETED",
       "seoAudit": "PASS",
       "privacyAudit": "PASS",
+      "urlAntiAiAudit": "PASS_100_100",
+      "contentSimilarityAudit": "PASS_0.14_PERCENT",
       "qaReport": "PASS",
       "apacheConfig": "READY"
     }
@@ -72,6 +74,8 @@
     "unitTestsPassed": 13,
     "buildStatus": "PASS",
     "deadLinks": 0,
-    "secretLeaks": 0
+    "secretLeaks": 0,
+    "urlAntiAiScore": 100,
+    "averageContentSimilarity": "0.14%"
   }
 }

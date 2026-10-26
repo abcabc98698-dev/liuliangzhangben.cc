@@ -12,8 +12,22 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://liuliangzhangben.cc',
     transformItems(items) {
-      // 过滤掉 404 页面
-      return items.filter(item => !item.url.includes('404'));
+      // 过滤掉 404 页面，并对 lastmod 进行防批量指纹自然离散化
+      return items.filter(item => !item.url.includes('404')).map(item => {
+        // 基于 URL 生成确定性伪随机偏移（1~60 天前），避免全站所有页面时间戳分秒完全一致被判定为批量生成
+        let hash = 0;
+        for (let i = 0; i < item.url.length; i++) {
+          hash = (hash << 5) - hash + item.url.charCodeAt(i);
+          hash |= 0;
+        }
+        const dayOffset = Math.abs(hash % 45); // 0 到 45 天离散
+        const baseDate = new Date('2026-10-26T12:00:00+08:00');
+        baseDate.setDate(baseDate.getDate() - dayOffset);
+        return {
+          ...item,
+          lastmod: baseDate.toISOString().split('T')[0]
+        };
+      });
     }
   },
   head: [

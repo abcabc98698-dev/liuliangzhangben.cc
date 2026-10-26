@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /404.html
+
+# 明确支持主流搜索引擎与 AI 检索机器人
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# 静态规范 Sitemap 指引
+Sitemap: https://liuliangzhangben.cc/sitemap.xml

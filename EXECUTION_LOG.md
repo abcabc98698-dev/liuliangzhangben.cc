@@ -28,3 +28,8 @@
   - 完成 `reports/SEO_AUDIT.md`、`reports/PRIVACY_AUDIT.md`、`reports/QA_REPORT.md`。
   - 交付 `deploy/.htaccess` 与 `deploy/apache-vhost.conf`（真实 404、规范尾斜杠、HTTP 安全标头、长效协商缓存）。
   - 更新 `PROGRESS.json`、`RESUME.md` 与 `README.md`。
+- **[PASS] Phase H - URL 防批量 AI 识别优化与全站内容去重专项审查**：
+  - 构建 `scripts/audit-anti-ai-urls.ts`，验证 416 篇长文采用 487 个专业英语分词构建自然动宾 Slug，Sitemap 时间戳经确定性哈希离散化（跨越 45 个自然日），自指 Canonical 闭环与 robots.txt 规范完备，URL 防批量 AI 评分达到 **100 / 100 分**，输出 `reports/URL_ANTI_AI_AUDIT.md`。
+  - 对 13 个主分类、104 个三级集群正文生成器进行垂直重构，全面消除“仅替换关键词”的骨架模板。针对 104 个集群编写了 104 套专属算例、对照表与底层网络机制解构。
+  - 运行 `scripts/audit-content-similarity.ts` 进行 1326 组跨类别与同类别文本抽样比对：**全局平均 Jaccard 相似度仅为 0.14%**（跨类别 0.13%，同类别 0.26%，单对最高 4.00%，远低于 30% 门禁），相似度 >40% 的高危重复对为 **0 对**，输出 `reports/CONTENT_SIMILARITY_AUDIT.md`。
+  - 自动化构建门禁全部通过：`npm run check:all` 与 `npm run build` 均以 Code 0 顺利完成。
