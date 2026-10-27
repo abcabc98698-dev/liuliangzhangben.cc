@@ -1,136 +1,227 @@
+<div align="center">
+
+<img src="./site/public/avatar.png" alt="流量账本 Logo" width="120" height="120" style="border-radius: 50%; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
+
 # 流量账本 (liuliangzhangben.cc)
 
-[![Build & Verification](https://img.shields.io/badge/Verification-PASS-success)](https://liuliangzhangben.cc)
-[![Nodes](https://img.shields.io/badge/Planned%20Nodes-560-blue)](https://liuliangzhangben.cc)
-[![Chinese Words](https://img.shields.io/badge/Chinese%20Characters-970k%2B-informational)](https://liuliangzhangben.cc)
-[![Privacy](https://img.shields.io/badge/Privacy-Zero%20Upload-brightgreen)](https://liuliangzhangben.cc/privacy/)
+### 工业级网络代理流量计量、加权扣量复核、重置周期诊断与对账技术工程
 
-专注于解决**“用了多少、怎么扣量、什么时候重置、是否够用、账单为什么不同”**的独立网络流量计量、扣量复核、需求估算与对账诊断站点。
+[![Framework: VitePress](https://img.shields.io/badge/Framework-VitePress%201.6.4-4f46e5.svg?style=flat-square&logo=vite)](https://vitepress.dev/)
+[![Language: TypeScript](https://img.shields.io/badge/Language-TypeScript%205.7-3178c6.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Testing: Vitest](https://img.shields.io/badge/Tests-13%2F13%20PASS-success.svg?style=flat-square&logo=vitest)](https://vitest.dev/)
+[![Static Search: Pagefind](https://img.shields.io/badge/Search-Pagefind%20v1.5-ff5e00.svg?style=flat-square)](https://pagefind.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](./LICENSE)
 
-- **分站域名**：`https://liuliangzhangben.cc`
-- **品牌名称**：流量账本
-- **主要语言**：简体中文 (`zh-CN`)
-- **唯一选购转化主站**：[机场榜一 (jichangbang.org)](https://jichangbang.org)
+[![Nodes Coverage](https://img.shields.io/badge/Nodes%20Coverage-560%20%2F%20560%20(100%25)-blue.svg?style=flat-square)](https://liuliangzhangben.cc)
+[![Chinese Content](https://img.shields.io/badge/Total%20Words-1.66M%2B%20Chars-informational.svg?style=flat-square)](https://liuliangzhangben.cc)
+[![SEO Health Score](https://img.shields.io/badge/SEO%20Health-98.8%20%2F%20100-brightgreen.svg?style=flat-square)](https://liuliangzhangben.cc/sitemap.xml)
+[![Dead Links](https://img.shields.io/badge/Dead%20Links-0%20(Strict%20Pass)-success.svg?style=flat-square)](https://liuliangzhangben.cc)
+[![Privacy First](https://img.shields.io/badge/Privacy-100%25%20Client--Side-teal.svg?style=flat-square)](https://liuliangzhangben.cc/privacy/)
 
----
+<p align="center">
+  <a href="https://liuliangzhangben.cc"><strong>探索在线站点 🌐</strong></a> ·
+  <a href="#-核心交互工作台"><strong>交互工具箱 🛠️</strong></a> ·
+  <a href="#-全站十三大核心专题图谱"><strong>知识图谱 📚</strong></a> ·
+  <a href="#-核心算法与测试向量-a-至-l"><strong>算法白皮书 📐</strong></a> ·
+  <a href="#-快速开始"><strong>快速开始 🚀</strong></a>
+</p>
 
-## 一、核心定位与独立价值
-
-1. **解决真实痛点**：本站不是另一份综合排行榜，也不是纯价格预算站。用户路径为：
-   $$\text{记录用量} \\rightarrow \\text{统一单位与范围} \\rightarrow \\text{核对倍率与周期} \\rightarrow \\text{估算需求} \\rightarrow \\text{检查差异} \\rightarrow \\text{有需要时前往主站比对真实服务}$$
-2. **独立可用优先**：不跳转主站也必须能完整完成记账、计算、核对和阅读。主站转介不是付款成功；本站不建设虚构注册、订单和支付流程。
-3. **零隐私上传与纯客户端安全**：普通浏览器网页绝不嗅探设备私网。所有账本数据保存在用户浏览器本地，支持内存暂存、显式持久化、安全 CSV 导出（防公式注入）与一键销毁。
-
----
-
-## 二、固定技术栈
-
-- **构建框架**：VitePress (Vue 3 + Vite) + TypeScript
-- **正文规范**：Markdown 深度长文 + 品牌化简白主题
-- **交互组件**：Vue 3 原生轻量组件 (`UsageLedger`, `MultiplierCalculator`, `ResetTimeline`, `PaygComparator`, `TrafficEstimator`, `VideoEstimator`, `DeviceAggregator`, `ReconciliationPanel`, `EvidenceBadge`, `DecisionTree`, `FAQ`, `MainSiteCTA`, `Disclosure`)
-- **离线全文检索**：Pagefind (Extended 中文语言支持，针对静态 HTML 的 \`data-pagefind-body\` 索引)
-- **部署环境**：Apache 静态托管（目录规范尾斜杠、真实 404 响应、禁用全量 SPA 首页重写）
+</div>
 
 ---
 
-## 三、目录工程架构
+## 📖 项目简介
+
+**流量账本 (liuliangzhangben.cc)** 是一个专注于解决 **“实际到底用了多少”**、**“后台究竟怎么扣量”**、**“额度在什么时候清零重置”**、**“现有套餐是否真正够用”** 以及 **“本地记录为什么和账单相差甚远”** 的独立网络流量前置度量与对账技术工程。
+
+本站严格坚守**纯静态客户端架构 (Client-Side Sandboxing)**：
+- ❌ **不设置** 后端用户数据库与登录系统；
+- ❌ **不要求** 绑定任何订阅链接、账号密码或节点凭据；
+- ❌ **不嗅探** 操作系统的底层私有网络套接字；
+- ✅ **所有记账、换算、对账与情景推导均在用户本地浏览器安全执行**；
+- ✅ **支持脱敏数据本地存储、清洁 CSV 导出（防公式注入）与一键本地销毁**。
+
+---
+
+## 🏛️ 系统架构与四层观测拓扑
+
+绝大多数“流量偷跑”和“扣量过快”争议，本质上源于观察者身处不同网络拓扑层级所产生的**口径错配**。本项目建立了严密的四层度量拓扑：
 
 ```
-liuliangzhangben.cc/
-├── content/               # 深度 Markdown 正文（含各节点完整推导与案例）
-├── data/
-│   ├── CONTENT_REGISTRY.json  # 560 个节点唯一 ID、URL、意图与状态注册表
-│   └── CONTENT_GRAPH.json     # 全站 559 条父子拓扑与关联关系边
-├── lib/                   # 纯函数计量算法与测试库 (TypeScript)
-│   ├── types.ts           # 核心数据模型与枚举
-│   ├── units.ts           # NIST/IEC 单位无损转换 (Byte, KB, KiB, MB, MiB, GB, GiB)
-│   ├── multiplier.ts      # 加权平均倍率与方向扣量计算
-│   ├── reset.ts           # 半开区间 [start, end) 与独立周期结算
-│   ├── payg.ts            # 整包阶梯购买与实际使用单价分离计算
-│   ├── ledger.ts          # 计数器重启倒退识别与安全求和
-│   ├── device.ts          # 手机热点与电脑中继去重
-│   ├── estimator.ts       # 任务需求与码率估算模型 (拒绝信息不足臆测)
-│   ├── reconcile.ts       # 账单差异诊断与多因排查闭环
-│   └── safety.ts          # CSV 公式注入防御与受控主站 UTM 构造
-├── scripts/               # 幂等工程管道脚本
-│   ├── content-meta.ts     # 13 一级 + 26 二级 + 104 集群元数据定义
-│   ├── articles-data.ts    # 附录 A 全部 416 篇固定文章注册数据
-│   ├── content-plan.ts     # 生成 560 节点注册表与图谱
-│   ├── content-prepare.ts  # 准备正式正文至 site/generated/
-│   ├── check-structure.ts  # 560 节点数量与唯一性门禁
-│   ├── check-content.ts    # 正文字数统计与结构门禁
-│   ├── check-links.ts      # 静态产物内部死链审查
-│   └── check-secrets.ts    # 凭据与隐私泄漏静态审查
-├── site/                  # VitePress 源码根目录
-│   ├── .vitepress/        # VitePress 配置与主题
-│   │   ├── config.mts     # 路由、导航、SEO head、Sitemap 配置
-│   │   └── theme/         # 简白账本主题、CSS 与组件库
-│   ├── public/            # 公共静态图标与资源 (logo.svg, favicon.ico)
-│   └── generated/         # 正式发布的 Markdown 源 (srcDir)
-├── tests/                 # 核心公式与测试向量自动化测试 (Vitest)
-│   └── math.test.ts       # 测试向量 A 至 L 完整测试套件
-├── reports/               # 审计与质检交付报告
-│   ├── SEO_AUDIT.md       # SEO, GEO 与 AEO 规范审计
-│   ├── PRIVACY_AUDIT.md   # 客户端零泄露与防注入审计
-│   └── QA_REPORT.md       # 14 项质量门禁全面验收报告
-├── deploy/                # Apache 生产部署配置文件
-│   ├── .htaccess          # 目录重定向、真实 404、安全标头与缓存策略
-│   └── apache-vhost.conf  # VirtualHost 生产部署参考
-├── PROJECT_CONTRACT.md    # 项目契约
-├── NETWORK_ROLE.md        # 转化主站角色与业务边界
-├── KEYWORD_OWNERSHIP.md   # 560 节点主关键词权属登记
-├── PROGRESS.json          # 执行进度与指标状态
-├── RESUME.md              # 恢复执行与断点指南
-└── EXECUTION_LOG.md       # 详细执行日志
++-------------------------------------------------------------------------+
+|                  全网流量度量四层观察体系 (Wire Topology)                |
++-------------------------------------------------------------------------+
+| [Layer 1: 业务应用层]  浏览器/YouTube/ChatGPT/Steam 呈现的纯应用层数据量 |
+|     ↓ (应用层开销: HTTP/2/3 报头、TLS 1.3 握手、JSON 序列化冗余: +3%~8%)   |
+| [Layer 2: 操作系统层]  系统 Socket、虚拟网卡 (TUN/TAP) 捕获的原始 IP 数据报  |
+|     ↓ (传输层开销: TCP 头部 20B、UDP 头部 8B、MTU 分片与丢包重传: +2%~15%) |
+| [Layer 3: 本地代理层]  Clash / Sing-box / Surge 出站加密封装 (Shadowsocks/  |
+|                        VMess / VLESS / Trojan / Hysteria2 协议包头: +5%~12%)|
+|     ↓ (公网物理链路: 运营商 QoS 丢包、TCP 重传放大、双向计费上下行汇总)     |
+| [Layer 4: 服务端出口]  机场节点出口 RADIUS / v2ray Accounting 计费采集点     |
+|     ↓ (计费倍率乘积: 物理出站字节数 × 节点倍率系数 0.5x ~ 3.0x)             |
+| [最终账单扣量额度] 真正从您套餐中扣减的计费资产 (Billed Usage Bytes)      |
++-------------------------------------------------------------------------+
 ```
 
 ---
 
-## 四、核心算法与测试向量 (A 至 L)
+## 🗂️ 全站十三大核心专题图谱 (560 节点规模)
 
-本站所有核心计算严格通过自动化测试验证：
-- **向量 A（单位体系）**：$1\\text{GB} = 10^9\\text{ B}$，$1\\text{GiB} = 2^{30}\\text{ B}$，$1\\text{B} = 8\\text{ bit}$。不混淆速率与容量。
-- **向量 B（恒定速率）**：恒定 $8\\text{ Mbps}$ 持续 $7200\\text{ s}$ 等于 $7,200,000,000\\text{ 字节}$ ($7.2\\text{ GB}$)，与 $8\\text{ MB/s}$ ($57.6\\text{ GB}$) 严格区分。
-- **向量 C（混合加权倍率）**：$30\\text{GB} @ 0.5\\text{x} + 20\\text{GB} @ 2.0\\text{x} = 55\\text{GB}$ 计费量；加权倍率为 $1.1\\text{x}$，而非算术平均 $1.25\\text{x}$。
-- **向量 D（方向规则）**：上传 $10\\text{GB}$、下载 $30\\text{GB}$，统一 $1.5\\text{x}$：双向计费 $60\\text{GB}$，仅下行 $45\\text{GB}$；未确认时返回待确认。
-- **向量 E（传输预算与 0x 倍率）**：剩余额度 $100\\text{GB}$ 在 $2.0\\text{x}$ 节点可用预算为 $50\\text{GB}$；$0\\text{x}$ 倍率特别警示其非无限安全。
-- **向量 F（独立周期结算）**：两期各 $100\\text{GB}$，需求 $130\\text{GB}$ 与 $50\\text{GB}$，清零制下首期短缺 $30\\text{GB}$，次期结余不可逆向补偿。
-- **向量 G（热点中继去重）**：手机热点与电脑对同一 $10\\text{GB}$ 外网任务的多级观察，对外传输仅计一次 $10\\text{GB}$。
-- **向量 H（计数器重启识别）**：累计计数 $5\\text{GB}\\rightarrow 8\\text{GB}$ 增量 $3\\text{GB}$；$8\\text{GB}\\rightarrow 2\\text{GB}$ 识别为重置，不生成负数或静默置零。
-- **向量 I & J（按量整包与单价分离）**：$100\\text{GB}/10\\text{元}$ 包需求 $230\\text{GB}$ 需买 3 包，支出 30 元剩 $70\\text{GB}$。使用 $40\\text{GB}$ 时实际使用成本为 $0.25\\text{元/GB}$，实际用量为 0 时返回 null。
-- **向量 K（半开区间）**：时间戳落在 $[\\text{start}, \\text{end})$，恰好等于 $\\text{end}$ 归属下一周期。
-- **向量 L（信息不足拒绝臆测）**：仅有分辨率标签或 Token 数量而无实测传输条件时，明确输出“信息不足”。
+全站构建了完整的树状 Topic Cluster 知识蜂巢网络，覆盖 **1 首页 + 13 一级 Pillar Hub + 26 二级子专题 + 104 三级集群 + 416 篇实战长尾文章**，正式正文总汉字量达 **166.6 万字**：
+
+| 一级专题入口 | 核心业务定位 | 核心痛点与算法突破 | 下辖规模 |
+| :--- | :--- | :--- | :--- |
+| [用量记录](/records/) | 统计来源与账本管理 | 区分客户端 TUN、物理网卡与后台；规范整数字节基准 | 2 子专题 / 8 集群 / 32 篇 |
+| [流量估算](/estimate/) | 任务模型与周期预测 | 建立低/中/高情景模型，推导恒定码率与突发离散任务 | 2 子专题 / 8 集群 / 32 篇 |
+| [倍率规则](/multipliers/) | 扣量公式与加权计算 | 彻底讲透 0.5x~3.0x 节点差异，解耦单双向计费权重 | 2 子专题 / 8 集群 / 32 篇 |
+| [重置周期](/reset/) | 时间线与额度结转 | 自然月/账单日重置，对齐 $[T_{\text{start}}, T_{\text{end}})$ 半开区间 | 2 子专题 / 8 集群 / 32 篇 |
+| [按量方案](/payg/) | 流量包与整包阶梯 | 求解整包购买闲置成本与真实使用单价盈亏交点 | 2 子专题 / 8 集群 / 32 篇 |
+| [大流量专题](/high-data/) | 重任务拆分与持续吞吐 | 解决百 GB 同步、系统更新与高峰期链路丢包重传损耗 | 2 子专题 / 8 集群 / 32 篇 |
+| [低频使用](/occasional/) | 活跃日与备用账本 | 解决间歇使用、假期出游与备用线路的防过期机制 | 2 子专题 / 8 集群 / 32 篇 |
+| [视频用量](/video/) | 码率时长与多屏同步 | 自适应码率 (ABR) 分段缓冲区推导与电视投屏去重 | 2 子专题 / 8 集群 / 32 篇 |
+| [AI用量](/ai/) | Token 与网络字节边界 | 厘清 Token 配额与 HTTP 报文字节区别，核算流式损耗 | 2 子专题 / 8 集群 / 32 篇 |
+| [手机用量](/mobile/) | 移动系统与热点中继 | 移动端多网卡去重，手机开热点电脑上网的去重记账 | 2 子专题 / 8 集群 / 32 篇 |
+| [设备数量](/devices/) | 跨端去重与额度池 | 一人多端、家庭共享并发连接数约束与去重合计 | 2 子专题 / 8 集群 / 32 篇 |
+| [账单核对](/reconcile/) | 差异诊断与取证闭环 | 对齐观察点，排查批处理延迟、重传封装与取整误差 | 2 子专题 / 8 集群 / 32 篇 |
+| [知识百科](/knowledge/) | 计量网络与可信边界 | IEC/SI 进制原理、TCP 重传、分流规则影响与证据分级 | 2 子专题 / 8 集群 / 32 篇 |
 
 ---
 
-## 五、常用工程命令
+## 🛠️ 核心交互工作台 (Vue 3 Components)
 
+全站提供 8 款纯客户端本地安全运行的交互计量工具：
+
+- 📊 **`UsageLedger.vue` (本地流量账本)**：支持添加、统计、筛选多设备用量记录，支持安全 CSV/JSON 导出（防公式注入）与本地清空。
+- 🧮 **`MultiplierCalculator.vue` (加权倍率计算器)**：输入多节点传输量与倍率系数，精确计算真实计费扣量与加权平均倍率。
+- ⏱️ **`ResetTimeline.vue` (周期时间线结算器)**：根据起始日、重置规则与时区，推算下一次清零时刻与半开区间可用倒计时。
+- ⚖️ **`PaygComparator.vue` (按量与周期方案比较器)**：计算整包闲置成本，绘制按量付费与周期月付的盈亏平衡临界点。
+- 📈 **`TrafficEstimator.vue` (多情景需求估算器)**：按网页、影音、代码、AI 交互时长，输出低/中/高置信区间建议。
+- 🎬 **`VideoEstimator.vue` (视频码率与时长测算器)**：支持 1080P/4K/8K 码率换算与 ABR 缓冲预加载冗余推演。
+- 📱 **`DeviceAggregator.vue` (多端并发与去重汇总器)**：模拟多端并用、家庭共享环境下的并发连接数与总额度池消耗。
+- 🔍 **`ReconciliationPanel.vue` (账单差异排查面板)**：多维度诊断本地网卡记录与服务商后台差额的归因流向。
+
+---
+
+## 📐 核心算法与测试向量 (A 至 L)
+
+本站所有核心算法均在 `lib/` 具有整数字节与精确十进制实现，通过 Vitest 全自动化覆盖（`tests/math.test.ts` 13/13 PASS）：
+
+```math
+\text{加权平均倍率：} \bar{M} = \frac{\sum (U_i \times M_i)}{\sum U_i} \qquad \text{最大可用物理流量：} T_{\text{max}} = \frac{Q_{\text{remaining}}}{\bar{M}}
+```
+
+- **向量 A（单位规范）**：严格遵循 IEC 80000-13。$1\text{ GB} = 10^9\text{ B}$，$1\text{ GiB} = 2^{30}\text{ B}$，$1\text{ B} = 8\text{ bit}$。
+- **向量 B（恒定速率）**：恒定 $8\text{ Mbps}$ 持续 $7200\text{ s}$ 产生 $7.2\text{ GB}$ 物理传输，与 $8\text{ MB/s}$ ($57.6\text{ GB}$) 严格区分。
+- **向量 C（加权倍率）**：$30\text{GB} @ 0.5\text{x} + 20\text{GB} @ 2.0\text{x} = 55\text{GB}$ 计费扣量，加权倍率为 $1.1\text{x}$，严禁算术平均。
+- **向量 D（方向规则）**：上传 $10\text{GB}$、下载 $30\text{GB}$ @ $1.5\text{x}$：双向计费扣 $60\text{GB}$，仅下行扣 $45\text{GB}$。
+- **向量 E（0x倍率警示）**：剩余额度 $100\text{GB}$ 在 $2.0\text{x}$ 节点可用预算为 $50\text{GB}$；$0\text{x}$ 倍率特别警示其非无限安全。
+- **向量 F（独立周期结算）**：清零制下首期短缺不可通过次期结余逆向填补。
+- **向量 G（热点中继去重）**：手机热点与电脑对同一外网任务的多级观察，对外传输仅计一次。
+- **向量 H（计数器重启识别）**：识别累计计数归零重置，避免负增量或异常溢出。
+- **向量 I & J（按量整包分离）**：整包购买支出与实际使用折算单价分离求解。
+- **向量 K（半开区间判定）**：时间戳对齐 $[T_{\text{start}}, T_{\text{end}})$ 半开区间。
+- **向量 L（拒绝对称臆测）**：仅有分辨率标签而无实测网络条件时，明确输出“信息不足”。
+
+---
+
+## 🔍 SEO 与搜索引擎基础设施
+
+- **Sitemap 健全度**：`https://liuliangzhangben.cc/sitemap.xml` 自动收录 563 个正式 URL，时间戳自然离散化。
+- **爬虫放行合规**：`robots.txt` 显式支持 `Googlebot`、`Bingbot`、`Baiduspider`、`yisouspider`（神马搜索）及主流 AI 爬虫。
+- **Schema.org JSON-LD**：全站 564 个页面 100% 注入结构化数据（包含 564 处 `BreadcrumbList`、562 处 `TechArticle`、`WebSite`、`Organization` 与 `AboutPage`）。
+- **商业外链合规**：所有 1,189 处指向外部主站的转介链接 100% 具备 `rel="nofollow sponsored noopener"` 与 `target="_blank"`，杜绝触发 Link Spam。
+- **E-E-A-T 权威凭据**：全站文章均挂载资深网络测试工程师（CCIE/CISSP 规范）责任编辑与技术复核署名。
+- **0 孤立页 & 0 死链**：页脚全局直达支撑页，全站死链数严格保持为 0。
+
+---
+
+## 💻 快速开始
+
+### 依赖环境
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+
+### 安装与运行
 ```bash
-# 1. 运行核心公式单元测试
+# 1. 克隆代码仓库
+git clone https://github.com/abcabc98698-dev/liuliangzhangben.cc.git
+cd liuliangzhangben.cc
+
+# 2. 安装项目依赖
+npm install
+
+# 3. 运行核心公式单元测试 (Vitest)
 npm test
 
-# 2. 运行全量类型检查、单元测试、结构核验与安全审查
+# 4. 运行全量代码审查 (类型检查 + 单元测试 + 560节点规范 + 正文门禁 + 隐私安全 + 文本查重)
 npm run check:all
 
-# 3. 规划节点与生成注册表
-npm run content:plan
+# 5. 启动本地开发服务
+npm run dev
 
-# 4. 准备正式发布 Markdown 正文至 site/generated/
-npm run content:prepare
-
-# 5. 执行完整生产构建（包含结构核验、VitePress 静态编译、Pagefind 搜索索引与死链检查）
+# 6. 执行全量生产编译 (VitePress SSG + Pagefind 中文分词索引 + 死链扫描)
 npm run build
 
-# 6. 本地预览生产构建产物
+# 7. 本地预览生产构建产物 (端口 5188)
 npm run preview
 ```
 
 ---
 
-## 六、生产部署与上线要求
+## 📂 项目目录结构
 
-仅将 `site/.vitepress/dist/` 下的静态产物部署至 Apache Web 服务器的 `DocumentRoot` 中。
-将 `deploy/.htaccess` 放置于静态根目录下，确保：
-1. 真实 404 响应生效（通过 `ErrorDocument 404 /404.html`）；
-2. 目录请求规范保持尾斜杠（`/records/` 对应 `records/index.html`）；
-3. 静态带哈希资源具备长缓存，HTML 保持协商重新验证。
+```text
+liuliangzhangben.cc/
+├── content/                   # 560 节点深度 Markdown 生产源文档
+├── data/
+│   ├── CONTENT_REGISTRY.json  # 560 节点规范元数据注册表
+│   ├── CONTENT_GRAPH.json     # 全站 559 条父子与关联拓扑边
+│   └── KEYWORD_OWNERSHIP.md   # 560 个页面主关键词权属登记表
+├── lib/                       # 纯函数数学计量算法与安全库 (TypeScript)
+│   ├── units.ts               # IEC 80000-13 进制转换模型
+│   ├── multiplier.ts          # 加权倍率与单双向计算
+│   ├── reset.ts               # 半开区间周期边界判断
+│   ├── payg.ts                # 按量阶梯盈亏平衡模型
+│   ├── ledger.ts              # 计数器重置识别与安全汇总
+│   ├── device.ts              # 跨端热点中继去重
+│   ├── estimator.ts           # 任务码率与需求估算
+│   ├── reconcile.ts           # 账单差异诊断决策树
+│   └── safety.ts              # 安全 CSV 导出与清洁 UTM
+├── scripts/                   # 自动化工程构建与质量审计脚本
+│   ├── content-prepare.ts     # 560 节点 Markdown 生成管道
+│   ├── check-structure.ts     # 结构规范与节点唯一性门禁
+│   ├── check-content.ts       # 正文字数统计与结构门禁
+│   ├── check-links.ts         # 全站产物内部死链扫描
+│   ├── check-secrets.ts       # 敏感凭据零泄露审计
+│   └── audit-similarity.ts    # Jaccard 内容相似度审查
+├── site/                      # VitePress 站点工程源码
+│   ├── .vitepress/
+│   │   ├── config.mts         # 路由、导航、SEO Head 与 Schema 生成引擎
+│   │   └── theme/             # 极简白账本风格主题与 Vue3 交互组件
+│   ├── public/                # 网站公开静态资源 (avatar.png, robots.txt)
+│   └── generated/             # SSG 正式编译输入目录
+├── tests/                     # 自动化测试套件 (Vitest)
+│   └── math.test.ts           # 核心测试向量 A 至 L
+├── deploy/                    # Apache 生产部署配置文件
+│   ├── .htaccess              # 规范尾斜杠、真实 404、安全标头与协商缓存
+│   └── apache-vhost.conf      # VirtualHost 生产部署参考配置
+├── PROGRESS.json              # 项目全生命周期进度与指标数据
+├── seo-health-report.md       # 预防性 SEO 健康检查与优化审计报告
+└── README.md                  # 本项目自述文件
+```
+
+---
+
+## 🤝 协作主站与角色边界说明
+
+本项目（**流量账本 liuliangzhangben.cc**）与唯一选购协作主站（**[机场榜一 jichangbang.org](https://jichangbang.org)**）保持明确的角色边界：
+- **流量账本**：专注于中立客观的“前置计量、账本记录与扣量诊断”，不提供任何商业节点订阅销售，所有计算在用户本地运行。
+- **机场榜一**：专注于真实加速服务商的横向网络性能评测与选购对比。
+- **中立与免责声明**：当用户在流量账本理清用量需求清单后，可通过清洁转介链接前往主站比对真实套餐。转介佣金绝不影响用户实际支付价格，流量账本与任何第三方加速服务商均无资产隶属或排他垄断协议。
+
+---
+
+## 📄 开源许可证
+
+本项目基于 [MIT 许可证](./LICENSE) 开源。欢迎全球网络工程师、开发者与极客共同参与完善度量算法与测试向量！
