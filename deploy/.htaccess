@@ -14,9 +14,13 @@ ErrorDocument 404 /404.html
   RewriteEngine On
   RewriteBase /
 
-  # 规范化 HTTPS 跳转 (根据生产环境证书启用)
+  # 统一正式主域名：www 301 重定向至非 www 裸域 (liuliangzhangben.cc)
+  # RewriteCond %{HTTP_HOST} ^www\.liuliangzhangben\.cc$ [NC]
+  # RewriteRule ^(.*)$ https://liuliangzhangben.cc/$1 [L,R=301]
+
+  # 规范化强制 HTTPS 301 重定向 (根据生产环境证书启用)
   # RewriteCond %{HTTPS} off
-  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # RewriteRule ^(.*)$ https://liuliangzhangben.cc/$1 [L,R=301]
 
   # 目录尾斜杠规范化：非文件请求且非以斜杠结尾时，301 重定向至规范目录
   RewriteCond %{REQUEST_FILENAME} -d

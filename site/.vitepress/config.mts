@@ -34,20 +34,59 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/png', href: '/avatar.png' }],
     ['meta', { name: 'theme-color', content: '#1e293b' }],
     ['meta', { name: 'format-detection', content: 'telephone=no' }],
+    // 中文与双核浏览器渲染兼容（360/QQ/UC/夸克/百度浏览器极速核）
+    ['meta', { name: 'renderer', content: 'webkit' }],
+    ['meta', { name: 'force-rendering', content: 'webkit' }],
+    ['meta', { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' }],
   ],
   transformPageData(pageData) {
     // 动态注入规范 canonical 与 JSON-LD
     const siteUrl = 'https://liuliangzhangben.cc';
     const canonicalPath = pageData.relativePath.replace(/index\.md$/, '').replace(/\.md$/, '');
     const canonicalUrl = `${siteUrl}/${canonicalPath}`;
+    const is404 = canonicalPath.includes('404');
     
     pageData.frontmatter.head ??= [];
+
+    // 1. 规范自引用 Canonical
     pageData.frontmatter.head.push([
       'link',
       { rel: 'canonical', href: canonicalUrl }
     ]);
 
-    // 构建面包屑 BreadcrumbList Schema
+    // 2. 爬虫抓取与索引控制指令
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'robots',
+        content: is404
+          ? 'noindex, nofollow'
+          : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      }
+    ]);
+
+    // 3. Open Graph 与 Twitter Card 社交元数据标准
+    const pageTitle = pageData.title ? `${pageData.title} | 流量账本` : '流量账本：机场用量记录、倍率计算与套餐核对';
+    const pageDescription = pageData.description || '独立的机场流量计量、扣量复核与重置周期诊断工具。解决用了多少、怎么扣量、什么时候重置、是否够用与账单差异。';
+    const pageType = canonicalPath === '' ? 'website' : 'article';
+    const ogImage = `${siteUrl}/avatar.png`;
+
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:site_name', content: '流量账本' }],
+      ['meta', { property: 'og:locale', content: 'zh_CN' }],
+      ['meta', { property: 'og:type', content: pageType }],
+      ['meta', { property: 'og:title', content: pageTitle }],
+      ['meta', { property: 'og:description', content: pageDescription }],
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { property: 'og:image', content: ogImage }],
+      ['meta', { property: 'og:image:alt', content: '流量账本 Logo' }],
+      ['meta', { name: 'twitter:card', content: 'summary' }],
+      ['meta', { name: 'twitter:title', content: pageTitle }],
+      ['meta', { name: 'twitter:description', content: pageDescription }],
+      ['meta', { name: 'twitter:image', content: ogImage }]
+    );
+
+    // 4. 构建面包屑 BreadcrumbList Schema
     const segments = canonicalPath.split('/').filter(Boolean);
     const breadcrumbItems = [
       {
@@ -67,6 +106,34 @@ export default defineConfig({
         item: `${siteUrl}/${accumulatedPath}`
       });
     });
+
+    if (pageType === 'article') {
+      pageData.frontmatter.head.push(
+        ['meta', { property: 'article:published_time', content: '2026-10-20T08:00:00+08:00' }],
+        ['meta', { property: 'article:modified_time', content: '2026-10-26T12:00:00+08:00' }],
+        ['meta', { property: 'article:author', content: '流量账本度量研究组' }],
+        ['meta', { property: 'article:section', content: segments[0] || '网络度量' }]
+      );
+    }
+
+    // 5. 搜索引擎站长平台所有权验证插槽预留 (支持环境变量或直接配置)
+    const GOOGLE_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION || '';
+    const BING_VERIFICATION = process.env.BING_SITE_VERIFICATION || '';
+    const BAIDU_VERIFICATION = process.env.BAIDU_SITE_VERIFICATION || '';
+    const SHENMA_VERIFICATION = process.env.SHENMA_SITE_VERIFICATION || '';
+
+    if (GOOGLE_VERIFICATION) {
+      pageData.frontmatter.head.push(['meta', { name: 'google-site-verification', content: GOOGLE_VERIFICATION }]);
+    }
+    if (BING_VERIFICATION) {
+      pageData.frontmatter.head.push(['meta', { name: 'msvalidate.01', content: BING_VERIFICATION }]);
+    }
+    if (BAIDU_VERIFICATION) {
+      pageData.frontmatter.head.push(['meta', { name: 'baidu-site-verification', content: BAIDU_VERIFICATION }]);
+    }
+    if (SHENMA_VERIFICATION) {
+      pageData.frontmatter.head.push(['meta', { name: 'shenma-site-verification', content: SHENMA_VERIFICATION }]);
+    }
 
     const schemas: any[] = [
       {
