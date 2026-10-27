@@ -348,7 +348,7 @@ Step 3: Execution of Security Action
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=devices_family_pool_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看全家不限设备榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=devices_family_pool_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看全家不限设备榜 →</a>
 </div>
 </div>
 
@@ -365,7 +365,7 @@ Step 3: Execution of Security Action
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=devices_geek_multiterminal_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看多端极客专线 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=devices_geek_multiterminal_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看多端极客专线 →</a>
 </div>
 </div>
 
@@ -382,7 +382,7 @@ Step 3: Execution of Security Action
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=devices_enterprise_pool_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看小微团队套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=devices_enterprise_pool_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看小微团队套餐 →</a>
 </div>
 </div>
 

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="价值评估规范" />
 <EvidenceBadge type="client-kernel" label="真实有效成本模型" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**每GB最便宜的方案为什么未必最适合任务：条件比较的基本方法**”，商业采购的核心认知公理是：**标称单价是最大的营销谎言，真实有效单价才是唯一的财务裁判。一个标称 500GB 售价 20 元的套餐（标称 0.04元/GB），若你全月只能用掉 20GB，其实际有效单价高达 1.00元/GB！必须引入‘配额有效利用率（Utilization）’，核算真正流经网卡的每一吉字节真实成本。**

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="AI文本计量规范" />
 <EvidenceBadge type="client-kernel" label="SSE长连接机制" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**流式输出一直显示文字，怎样区分交互时长与实际传输量？**”，AI 文本交互计量的物理基石是：**纯文本交互本身产生的实际网络载荷极小，但维持长连接的传输封装与页面静态资源加载占比极高。日常使用 ChatGPT、Claude 进行纯文本对话，单次问答在网络层仅产生数十至数百千字节（KB），每月高强度纯文本交互消耗通常不超过 1GB~3GB。**

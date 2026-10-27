@@ -361,7 +361,7 @@ $$40.50 \times 2^{30} = 43{,}486{,}380{,}032\text{ 字节} \approx 43.49\text{ G
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=records_precision_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看高透明度专线榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=records_precision_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看高透明度专线榜 →</a>
 </div>
 </div>
 
@@ -378,7 +378,7 @@ $$40.50 \times 2^{30} = 43{,}486{,}380{,}032\text{ 字节} \approx 43.49\text{ G
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=records_single_dir_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看单向计费套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=records_single_dir_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看单向计费套餐 →</a>
 </div>
 </div>
 
@@ -395,7 +395,7 @@ $$40.50 \times 2^{30} = 43{,}486{,}380{,}032\text{ 字节} \approx 43.49\text{ G
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=records_payg_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看备用记账方案 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=records_payg_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看备用记账方案 →</a>
 </div>
 </div>
 

@@ -348,7 +348,7 @@ Radius Accounting Packet:
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_ai_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看 AI 专线评测榜 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_ai_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看 AI 专线评测榜 →</a>
 </div>
 </div>
 
@@ -365,7 +365,7 @@ Radius Accounting Packet:
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_video_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看 4K 影音专线评测 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_video_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看 4K 影音专线评测 →</a>
 </div>
 </div>
 
@@ -382,7 +382,7 @@ Radius Accounting Packet:
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_payg_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看不限时按量方案 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_payg_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看不限时按量方案 →</a>
 </div>
 </div>
 
@@ -399,7 +399,7 @@ Radius Accounting Packet:
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_team_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看团队与多端套餐榜 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=home_team_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看团队与多端套餐榜 →</a>
 </div>
 </div>
 

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="情景推演矩阵" />
 <EvidenceBadge type="standard-rule" label="冗余安全系数" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**流量安全余量应该怎样解释：基于任务变化而不是随意加固定比例**”，情景化预算的底层法则是：**确定性的单点预测在随机波动的真实网络中是极其脆弱的。科学的容量规划必须提供‘低负荷、基准、高负荷’三种情景区间，并为每个区间配置明确的触发条件与安全余量系数。**

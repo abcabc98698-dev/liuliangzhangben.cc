@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="期末封账规程" />
 <EvidenceBadge type="client-kernel" label="结算指标闭环" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**怎样验证周期计算器在月末、闰日和时区边界没有漏算或重算？**”，周期复盘的终极法则：**未经结算封账的账本只是一堆杂乱的数据流水。在每个周期的最后一天，必须执行标准的‘期末封账（Closeout）’流程，固定全周期物理消耗、锁定实际账单扣量、推导综合加权倍率、归档历史差异，并据此生成新周期的预算基线。**

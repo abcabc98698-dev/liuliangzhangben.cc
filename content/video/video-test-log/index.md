@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="流媒体验收规范" />
 <EvidenceBadge type="client-kernel" label="原生解锁与对账" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**一次视频用量测试需要记录哪些字段，才能供别人复查？**”，流媒体验收与对账的终极准则是：**能打开网站不等于能看视频，能播放自制剧不等于完全解锁。必须通过‘原生 IP 解锁校验’、‘Stats for Nerds 物理码率核查’与‘后台扣量差额比对’三道权威工序，确证节点不仅具有真实的流媒体解锁能力，而且计费倍率真实不虚标。**

@@ -370,7 +370,7 @@ Step 3: Atomic Balance Mutation (No Periodic Reset Timer)
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=payg_permanent_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看永久不限时包 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=payg_permanent_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看永久不限时包 →</a>
 </div>
 </div>
 
@@ -387,7 +387,7 @@ Step 3: Atomic Balance Mutation (No Periodic Reset Timer)
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=payg_enterprise_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看大容量按量包 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=payg_enterprise_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看大容量按量包 →</a>
 </div>
 </div>
 
@@ -404,7 +404,7 @@ Step 3: Atomic Balance Mutation (No Periodic Reset Timer)
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=payg_hybrid_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看混合双保方案 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=payg_hybrid_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看混合双保方案 →</a>
 </div>
 </div>
 

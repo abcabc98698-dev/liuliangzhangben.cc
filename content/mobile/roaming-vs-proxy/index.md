@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="多网络切换规范" />
 <EvidenceBadge type="client-kernel" label="基站切换重传模型" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**出行时的漫游费用与机场流量为什么要分开核对？**”，移动网络切换计量的核心规律是：**网络物理通道的跳变必然伴随着数据包的在途丢弃与 TCP 会话重建。当手机离开家门从 Wi-Fi 自动切入 5G 蜂窝网络时，正在传输的未确认分片会被强行重传，且流量计费实体瞬间从‘宽带光纤’转移至‘蜂窝流量卡’与‘机场账户’。**

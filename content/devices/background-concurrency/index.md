@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="并发与性能规范" />
 <EvidenceBadge type="client-kernel" label="连接数过载模型" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**后台同步占用连接资源时，怎样从任务时间线判断影响？**”，并发性能约束的核心法则是：**带宽决定水管粗细，并发连接数决定能同时开几个水龙头。许多用户遇到网络突然全线卡死报错，往往并非流量用尽或节点断线，而是触发了服务商后端的‘最大在线 IP 熔断’或‘单账户最大 TCP 连接数风控（Max Connections Cap）’。**

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="AI编程计量规范" />
 <EvidenceBadge type="client-kernel" label="高频代码补全机制" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**AI编程耗流量来自哪里：模型请求、仓库和依赖下载怎样拆分？**”，AI 编程辅助计量的核心公理是：**敲代码看似只有几行字，但在智能补全与代码库索引（Codebase Indexing）下，网络是在以每分钟数次的频率持续与海外服务端进行上下文同步。使用 Cursor 或 GitHub Copilot，一天的敲代码过程会产生数百次微小但高频的 API 请求，全月消耗通常在 5GB 至 20GB 之间。**

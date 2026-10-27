@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="配额凭据规范" />
 <EvidenceBadge type="client-kernel" label="服务履约契约" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**赠送流量与购买额度是否拥有相同使用权，应该从哪些字段判断？**”，流量额度的法律与商业真理是：**流量配额（Quota Entitlement）不是物理商品，而是一份‘具有时效性约束的有限网络转发通行凭证’。用户支付的月费购买的不是‘可以永远囤积的白糖或原油’，而是‘在约定期限内，服务商承诺向你开放特定带宽出口的上限配额’。**

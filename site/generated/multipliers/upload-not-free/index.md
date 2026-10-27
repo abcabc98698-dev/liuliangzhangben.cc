@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="方向计量准则" />
 <EvidenceBadge type="client-kernel" label="非对称流量对账" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**服务只写流量额度却没写上传是否计费，怎样记录未知并向客服核对？**”，方向计费的核心法则是：**网络通信是双向的。浏览网页时不仅有网页内容的下行，更有发出请求、上传 Cookie 与 TLS 握手的上行。不同的服务商计费后端对上下行的核算策略完全不同，方向口径不明，任何对账都无法闭合。**

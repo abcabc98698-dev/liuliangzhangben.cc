@@ -356,7 +356,7 @@ Gross Discrepancy (毛差额): 15.30 - 10.20 = +5.10 GiB (+50.0% 暴涨!)
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=reconcile_transparent_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看高透明对账专线 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=reconcile_transparent_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看高透明对账专线 →</a>
 </div>
 </div>
 
@@ -373,7 +373,7 @@ Gross Discrepancy (毛差额): 15.30 - 10.20 = +5.10 GiB (+50.0% 暴涨!)
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=reconcile_enterprise_sla_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看企业 SLA 套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=reconcile_enterprise_sla_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看企业 SLA 套餐 →</a>
 </div>
 </div>
 
@@ -390,7 +390,7 @@ Gross Discrepancy (毛差额): 15.30 - 10.20 = +5.10 GiB (+50.0% 暴涨!)
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=reconcile_honest_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看无暗扣放心榜 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=reconcile_honest_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看无暗扣放心榜 →</a>
 </div>
 </div>
 

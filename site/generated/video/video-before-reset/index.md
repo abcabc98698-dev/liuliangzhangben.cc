@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="观影计划排期" />
 <EvidenceBadge type="standard-rule" label="额度预算分配" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**重置前后有集中观看安排，怎样按时间分配额度而不是只看总量？**”，观影预算规划的核心法则是：**把无序的冲动刷剧，转化为有序的‘配额预算排期（Schedule Budgeting）’。若不加节制地追新番或刷长剧，百吉字节的月度配额通常撑不过两周。必须将观影计划拆解为‘工作日稳态小食’与‘周末集中大餐’，建立配额日历分配机制。**

@@ -94,7 +94,7 @@ export function renderDiagnosticCards(cards: DiagnosticCard[]): string {
     }
     md += `</tbody>\n</table>\n`;
     md += `<div class="card-action">\n`;
-    md += `<a href="https://jichangbang.org${card.targetPath}?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=${card.campaign}" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">${card.ctaText} →</a>\n`;
+    md += `<a href="https://jichangbang.org${card.targetPath}?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=${card.campaign}" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">${card.ctaText} →</a>\n`;
     md += `</div>\n`;
     md += `</div>\n\n`;
   }

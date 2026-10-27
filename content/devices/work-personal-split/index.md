@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="多成员任务分配" />
 <EvidenceBadge type="client-kernel" label="排头兵设备画像" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**工作和个人设备共用服务时，怎样保留可解释的使用分类？**”，多成员网络治理的根本原则是：**用量透明才能消除猜疑，分级管控才能保障公平。家庭或小型创业团队中，‘谁把流量用完了’往往是月末最容易引发矛盾的焦点。必须通过‘设备画像与消耗排行榜’，精准识别出占用了 80% 额度的‘排头兵设备（Top Consumer）’，并对其施加针对性约束。**

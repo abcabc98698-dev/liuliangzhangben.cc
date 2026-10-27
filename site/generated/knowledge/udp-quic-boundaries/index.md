@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="传输协议规范" />
 <EvidenceBadge type="client-kernel" label="封装报头物理损耗" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**UDP与QUIC任务的传输量应该如何理解，为什么不能只凭协议名预测开销？**”，网络协议栈传输的物理真理是：**物理网络没有‘空手套白狼’的纯净传输。从应用层 Payload 到以太网物理电信号，数据包必须逐层穿上‘TCP 头、IP 头、TLS 记录头、代理协议命令头与以太网帧尾’五件厚重的大衣。数据包越小，报头在总传输中的占比就越高，这就是高频小请求极其消耗配额的底层物理根因。**

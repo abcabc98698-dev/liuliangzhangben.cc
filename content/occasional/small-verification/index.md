@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="轻量记账规范" />
 <EvidenceBadge type="client-kernel" label="无负担维护模型" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**一次备用连接检查需要记录什么，怎样避免把测试结果误当长期稳定性？**”，低频记账的最高准则是：**系统必须服务于人，而非奴役人。要求一个月只用两次网络的人去事无巨细地记录每个网页的 IP、端口和毫秒时间戳，必然导致账本在三天内被彻底放弃。低频用户必须采用‘极简按次打点法（Lightweight Session Logging）’——只记任务名称、大致体积和当前总余额，三步搞定。**

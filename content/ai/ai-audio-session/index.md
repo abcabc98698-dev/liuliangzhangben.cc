@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="多模态生成模型" />
 <EvidenceBadge type="standard-rule" label="富媒体素材核算" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**语音AI会话的上下行用量怎样分别记录，时长模型有什么前提？**”，多模态 AI 计量的残酷真理是：**生成图像与生成视频是流量消耗的跳跃式分水岭。如果说文本交互是‘涓涓细流’，那么 Midjourney 的四宫格大图、Sora 的高清生成视频则是实打实的‘流量粉碎机’。单次高清生成视频拉取即可消耗数百兆乃至数吉字节，必须建立多模态独立预算。**

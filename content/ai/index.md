@@ -374,7 +374,7 @@ AI 用量是极客网络度量中最具代表性的场景：
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=ai_native_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看 AI 专线评测榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=ai_native_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看 AI 专线评测榜 →</a>
 </div>
 </div>
 
@@ -391,7 +391,7 @@ AI 用量是极客网络度量中最具代表性的场景：
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=ai_coding_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看 AI 编程加速包 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=ai_coding_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看 AI 编程加速包 →</a>
 </div>
 </div>
 
@@ -408,7 +408,7 @@ AI 用量是极客网络度量中最具代表性的场景：
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=ai_payg_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看 AI 不限时按量方案 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=ai_payg_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看 AI 不限时按量方案 →</a>
 </div>
 </div>
 

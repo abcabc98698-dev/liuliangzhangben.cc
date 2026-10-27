@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="时区定义准则" />
 <EvidenceBadge type="client-kernel" label="半开区间对齐" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**一个下载任务跨越重置时刻，只有总量时能否准确拆分扣量？**”，时区对账的首要公理是：**没有标注时区的时间戳毫无意义。跨国网络代理服务中，用户本地设备位于北京时间（UTC+8），而服务商数据库服务器往往运行在协调世界时（UTC）或美西时间（UTC-7/UTC-8）。8 小时乃至 16 小时的时差错位，足以让任何跨月核算彻底崩溃。**

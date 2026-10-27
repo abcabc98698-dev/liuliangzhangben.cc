@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="视频码率规范" />
 <EvidenceBadge type="client-kernel" label="时长容量精确推导" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**假设持续8Mbps观看两小时会传多少数据：完整演算与不确定项**”，流媒体流量计量的物理基石是：**分辨率（如 1080p 或 4K）只是画面的像素点阵尺寸，码率（Bitrate，即每秒编码传输的比特数）才是决定流量消耗的唯一物理量。同一个 1080p 视频，低码率压缩版本仅需 2.5Mbps（约 1.1GB/h），而高码率 60fps 蓝光原盘压制版可达 12Mbps（约 5.4GB/h），两者流量消耗相差近 5 倍。**

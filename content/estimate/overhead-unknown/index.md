@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="client-kernel" label="分流路由机制" />
 <EvidenceBadge type="standard-rule" label="额外损耗核算" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**协议开销没有实际测量时，怎样提供假设范围而不是固定加百分比？**”，范围与损耗的核心公理是：**“代理开启”不等于“所有流量走代理”，而“下载 1GB”在网络底层也绝不止“传输 1GB”。路由分流规则决定了哪些数据离开本机进入代理隧道，而网络协议栈与重传机制则决定了隧道内的实际膨胀开销。**

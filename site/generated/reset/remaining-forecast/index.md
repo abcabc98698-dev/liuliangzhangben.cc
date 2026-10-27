@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="额度燃尽模型" />
 <EvidenceBadge type="standard-rule" label="到期预警准则" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**离重置还有七天，怎样用实际任务安排判断剩余额度是否够用？**”，剩余额度监控的底层法则是：**静态的剩余吉字节数字没有任何指导意义，必须将其与‘剩余日历时间’结合，计算‘动态允许燃尽速率（Burn Rate）’。若剩余额度支撑不到周期结束，哪怕此时还剩 50GB，该账户在本质上也已经处于‘潜在断流危机’中。**

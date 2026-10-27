@@ -372,7 +372,7 @@ Billed Deduction (1.5x): 216.70 * 1.5 = 325.05 MB!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=video_4k_ultra_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看 4K 影音专线榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=video_4k_ultra_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看 4K 影音专线榜 →</a>
 </div>
 </div>
 
@@ -389,7 +389,7 @@ Billed Deduction (1.5x): 216.70 * 1.5 = 325.05 MB!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=video_1080p_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看平价追剧套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=video_1080p_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看平价追剧套餐 →</a>
 </div>
 </div>
 
@@ -406,7 +406,7 @@ Billed Deduction (1.5x): 216.70 * 1.5 = 325.05 MB!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=video_appletv_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看大屏家庭套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=video_appletv_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看大屏家庭套餐 →</a>
 </div>
 </div>
 

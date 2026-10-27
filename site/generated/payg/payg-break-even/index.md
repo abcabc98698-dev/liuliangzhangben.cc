@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="横向横评规范" />
 <EvidenceBadge type="client-kernel" label="盈亏平衡点推导" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**两种付款方式的交点怎样计算：为什么整包购买会让成本阶梯式变化？**”，方案比选的终极真理是：**月付与按量不是非此即彼的对立关系，而是分工明确的互补协同。高频基准流量由月付套餐承担（享受极低单 GB 成本），突发与备用流量由按量方案兜底（消灭清零浪费与断网风险）。两者的分水岭由‘月度盈亏平衡点（Break-even Point）’严格决定。**

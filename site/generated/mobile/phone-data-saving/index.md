@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="后台同步排查规范" />
 <EvidenceBadge type="client-kernel" label="静默漏电模型" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**开启省流量模式后怎么验证效果，不能只看设置开关状态？**”，手机后台流量治理的铁血法则是：**你没有用手机，并不代表手机没有在用你的网络。iCloud 照片原图全量上传、Google Photos 云端同步、App Store 夜间自动静默更新，是手机端最大的‘三大流量黑洞’。如果未在分流规则中将这些系统级同步服务严格配置为 DIRECT（直连），几百吉字节的机场额度会在短短一夜之间被全部吸干。**

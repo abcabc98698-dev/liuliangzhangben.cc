@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="条款定义规范" />
 <EvidenceBadge type="client-kernel" label="有效性前提审查" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**低频使用的流量包是否需要保持账户活跃，购买前应查看什么条款？**”，按量付费（Pay-As-You-Go, PAYG）的核心法则是：**‘不限时’绝不等于‘无任何维护义务的真正永久’。按量方案以‘一次性购买流量池、无固定自然月清零、按实际扣量扣减’为核心特征，但服务商通常会附加‘账户活跃度维持’、‘域名解析保留’或‘节点维护费’等隐藏前置有效条件。**

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="文档上传规范" />
 <EvidenceBadge type="client-kernel" label="文件传输开销解构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**同一文件反复提交是否重复耗量，怎样记录每次实际上传？**”，文档型 AI 交互计量的核心法则是：**上传是实打实的物理数据外网传输。给大模型喂一份 50MB 的财务财报 PDF，或者打包上传一个 200MB 的工程代码库，其网络消耗是由文件真实体积与多部件表单封装决定的，且在双向计费服务商下属于 100% 的上行额度扣除。**

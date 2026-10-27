@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="分应用分流规范" />
 <EvidenceBadge type="client-kernel" label="黑白名单机制" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**浏览器和其他手机应用是否走同一路径，怎样用最少信息确认范围？**”，手机端精准分流的核心公理是：**宁可错放一个直连，绝不误吸一个国内大流量。通过开启‘分应用代理（Per-App Proxy / Access Control）’，在操作系统应用层实现硬性隔离——只允许确需出海的海外应用接入虚拟代理，将抖音、B站、微信等国内流量巨兽在物理上彻底阻绝在代理网卡之外。**

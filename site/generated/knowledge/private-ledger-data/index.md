@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="隐私安全红线" />
 <EvidenceBadge type="client-kernel" label="纯静态沙箱架构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**流量记录可能包含哪些敏感线索，分享和保存前应该怎样处理？**”，流量账本（liuliangzhangben.cc）立项的第一宪法公理是：**不信任任何人，包括本站自身。真实的数字安全不是靠道德说教，而是靠架构约束。本站为 100% 纯静态站点（Static Site），绝不建立用户注册系统、绝不部署后端数据库、绝不要求安装任何系统探针或根证书。你记录的每一条账本数据，都绝对物理隔离在你当前浏览器的本地内存与沙箱中。**

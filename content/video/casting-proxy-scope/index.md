@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="大屏投屏规范" />
 <EvidenceBadge type="client-kernel" label="流量拓扑路径分析" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**手机已接入服务但电视未接入时，怎样分别验证而不是重复购买？**”，电视大屏大流量治理的拓扑真理是：**投屏方式决定了流量的真实流向。通过手机 DLNA 投屏时，手机只是把播放 URL 甩给电视，真实流量由电视直接出网；而通过 AirPlay 屏幕镜像时，流量是先由手机代理下载再在局域网二次推流给电视。拓扑搞错，对账与排查全盘皆输。**

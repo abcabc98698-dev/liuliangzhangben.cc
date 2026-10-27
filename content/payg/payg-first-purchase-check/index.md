@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="全周期验证规范" />
 <EvidenceBadge type="client-kernel" label="资产折旧复盘" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**第一次买流量包后，应该核验额度到账、倍率和任务可用性的哪些项目？**”，按量资产管理的闭环法则是：**大额购买必须有小额验证前置，长期沉淀必须有定期折旧复盘垫后。绝不能仅凭网页上的宣传文案就直接付款数百元，必须遵循‘100MB 探针测试真实倍率 $\rightarrow$ 小规格周期验证 $\rightarrow$ 最终资产定期核销’的完整闭环。**

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="分流路由规范" />
 <EvidenceBadge type="client-kernel" label="Fake-IP机制解构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**DNS查询流量与应用数据流量有什么区别，DNS检测不能证明哪些事情？**”，智能路由分流的核心法则是：**规则决定路径，解析决定生死。客户端分流引擎本质上是一个‘自顶向下的规则防火墙’。匹配规则严格遵循‘最长前缀优先、先命中先执行、最后 MATCH 兜底’的顺序。把一条直连规则写在代理规则后面，会导致整套分流彻底失效。**

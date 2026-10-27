@@ -14,6 +14,7 @@ import DecisionTree from './components/DecisionTree.vue';
 import FAQ from './components/FAQ.vue';
 import MainSiteCTA from './components/MainSiteCTA.vue';
 import Disclosure from './components/Disclosure.vue';
+import AuthorByline from './components/AuthorByline.vue';
 
 export default {
   extends: DefaultTheme,
@@ -31,5 +32,6 @@ export default {
     app.component('FAQ', FAQ);
     app.component('MainSiteCTA', MainSiteCTA);
     app.component('Disclosure', Disclosure);
+    app.component('AuthorByline', AuthorByline);
   }
 };

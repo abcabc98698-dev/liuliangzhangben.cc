@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="计量单位准则" />
 <EvidenceBadge type="client-kernel" label="结算粒度对账" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**只缺少10GB却只能整包购买，怎样计算本次现金支出与剩余额度？**”，按量购买与消耗的微观法则是：**采购是以‘整包（Pack）’或‘充值金额（Balance）’为单位宏观结算的，而消耗是以‘会话断开时的字节粒度（Granularity）’微观扣除的。舍入步长（Rounding Step）越粗糙，微小碎片请求产生的隐性浪费就越惊人。**

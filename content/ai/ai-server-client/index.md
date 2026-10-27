@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="隐私隔离规范" />
 <EvidenceBadge type="client-kernel" label="本地与云端边界解构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**请求由服务器代发时，用户设备的机场流量与服务端流量如何区分？**”，AI 流量治理的安全红线是：**本地推理绝不走外网代理，私密代码绝不盲目出境。在本地运行 Ollama、LM Studio 等私有化大模型时，必须在分流规则中将 `localhost`、`127.0.0.1` 与本地私有网段严格配置为 DIRECT（直连），绝对杜绝本地内网数据被虚拟网卡截获送入海外代理节点。**

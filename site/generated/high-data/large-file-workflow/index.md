@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="重度任务清单" />
 <EvidenceBadge type="client-kernel" label="大流量载荷解构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**经常同步大文件的人如何估算流量：首次同步与后续差量分别记录**”，大流量治理的首要公理是：**二八定律在网络流量中表现得淋漓尽致——全月 80% 的流量通常被不到 20% 的重度离散任务所消耗。粗放地把大任务与日常网页浏览混为一谈，必然导致预算失控；必须对超大任务（单次 $> 5\text{ GB}$）建立独立台账与任务清单（Task Inventory）。**

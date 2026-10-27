@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="设备身份规范" />
 <EvidenceBadge type="client-kernel" label="连接与IP映射解构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**跨设备记账怎样使用匿名标识，既能区分设备又不泄露个人身份？**”，多设备计量的核心拓扑法则：**严格区分‘物理设备数’、‘公网出口 IP 数’与‘底层 TCP 并发连接数’三个截然不同的技术概念。服务商宣传的‘限制 3 台设备’，在底层计费网关中通常指的是‘允许同时发起鉴权的不同公网 IP 数量（Concurrent Online IPs）’，而非识别你电脑的物理网卡 MAC 地址。**

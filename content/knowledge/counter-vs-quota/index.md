@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="计量公理规范" />
 <EvidenceBadge type="client-kernel" label="IEC/SI标准对齐" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**设备计数器与服务额度余额有什么区别：一个观察使用，一个描述权利**”，计算机科学计量的绝对基石是：**单位不仅是符号，更是物理量纲的数学表达。混淆 bit 与 Byte、混淆十进制 GB 与二进制 GiB，是全网 90% 以上流量对账争议的直接诱因。在计算机与网络通信中，必须严格区分国际电工委员会 (IEC) 二进制前缀与国际度量衡局 (SI) 十进制前缀，且一切计算最终必须归一化为整数字节（Integer Bytes）。**

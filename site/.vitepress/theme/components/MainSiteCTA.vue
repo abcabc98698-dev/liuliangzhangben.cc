@@ -14,7 +14,7 @@
       <a
         :href="safeTargetUrl"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow sponsored noopener"
         class="ledger-btn ledger-btn-primary"
       >
         {{ buttonText || '在机场榜一比较实际套餐 →' }}

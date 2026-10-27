@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="取证维权规程" />
 <EvidenceBadge type="client-kernel" label="标准证据包构建" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**怎样设计低消耗、可复查的流量核对测试，而不是大量跑测速？**”，维权取证的第一法则：**口说无凭，数据说话。遇到账单严重异常或怀疑服务商恶意虚标时，严禁在客服群情绪化宣泄或空口断言‘你们偷跑’。必须构建标准的‘最小可复现证据包（Minimal Reproducible Evidence Pack）’——用已知体积的标准测试文件、前后时间戳截屏、客户端纯净日志与后台差额，形成闭环铁证。**

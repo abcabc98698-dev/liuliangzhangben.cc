@@ -372,7 +372,7 @@ $$\text{Target Plan Size} = 497.2 \times 1.20 = 596.64\text{ GiB} \approx 600\te
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=estimate_flexible_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看弹性容量套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=estimate_flexible_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看弹性容量套餐 →</a>
 </div>
 </div>
 
@@ -389,7 +389,7 @@ $$\text{Target Plan Size} = 497.2 \times 1.20 = 596.64\text{ GiB} \approx 600\te
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=estimate_economy_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看精准适配套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=estimate_economy_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看精准适配套餐 →</a>
 </div>
 </div>
 
@@ -406,7 +406,7 @@ $$\text{Target Plan Size} = 497.2 \times 1.20 = 596.64\text{ GiB} \approx 600\te
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=estimate_burst_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看大吞吐专线榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=estimate_burst_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看大吞吐专线榜 →</a>
 </div>
 </div>
 

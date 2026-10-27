@@ -12,6 +12,8 @@ layout: doc
 <EvidenceBadge type="client-kernel" label="红字冲正机制" />
 <EvidenceBadge type="packet-snapshot" label="八步闭环复盘" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**重新给任务分类时，怎样保留历史报表的可解释性？**”，账本审计与更正管理的核心工程法则是：**抄错一条流量记录后，严禁直接在数据库中“物理删除或静默覆盖”原记录。专业的审计级账本必须采用“红字冲正（Adjustment & Reversal）”或保留原值并附带更正原因的审计追溯链，确保任何时点的历史报表均具备完全的可解释性与因果可回溯性。**

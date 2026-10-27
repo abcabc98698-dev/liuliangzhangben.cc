@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="峰值爆发模型" />
 <EvidenceBadge type="standard-rule" label="高峰日防御准则" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**系统或应用大更新将至，怎样从实测包大小而不是宣传大小预留流量？**”，峰值治理的核心公理是：**流量的消耗具有极强的聚集性与突发性（Burstiness）。平均日均值抹杀了峰值的存在，但账单的崩溃往往就发生在短短 24 小时的高峰日（Peak Day）。必须为高峰日建立‘脉冲吸收额度池’与‘单日突发防御阈值’。**

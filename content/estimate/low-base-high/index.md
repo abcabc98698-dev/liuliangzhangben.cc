@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="情景推演矩阵" />
 <EvidenceBadge type="standard-rule" label="冗余安全系数" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**怎样为下月用量设置低、中、高三种情景而不冒充概率预测？**”，情景化预算的底层法则是：**确定性的单点预测在随机波动的真实网络中是极其脆弱的。科学的容量规划必须提供‘低负荷、基准、高负荷’三种情景区间，并为每个区间配置明确的触发条件与安全余量系数。**

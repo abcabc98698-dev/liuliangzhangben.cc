@@ -359,7 +359,7 @@ Monthly Silent Baseline (30 Days): ~7.30 MB / Month!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=occasional_standby_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看低频免维护方案 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=occasional_standby_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看低频免维护方案 →</a>
 </div>
 </div>
 
@@ -376,7 +376,7 @@ Monthly Silent Baseline (30 Days): ~7.30 MB / Month!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=occasional_micro_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看微型平价月付 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=occasional_micro_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看微型平价月付 →</a>
 </div>
 </div>
 
@@ -393,7 +393,7 @@ Monthly Silent Baseline (30 Days): ~7.30 MB / Month!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=occasional_holiday_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看出行短期包 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=occasional_holiday_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看出行短期包 →</a>
 </div>
 </div>
 

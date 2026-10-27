@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="大容量选型规范" />
 <EvidenceBadge type="client-kernel" label="FUP限流条款核查" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**大流量机场套餐怎么比较：总额度之外还要检查哪些规则？**”，大容量套餐选型的核心公理是：**套餐标称额度越大，背后的隐性限制条款往往越多。购买 500GB 至 2TB 的大容量套餐前，必须无情穿透‘单日流量封顶’、‘晚高峰 QOS 限速’与‘公平使用原则（Fair Usage Policy, FUP）’三层商业壁垒。标称 1TB 但单日限流 20GB 的套餐，本质上只是一个被阉割的玩具。**

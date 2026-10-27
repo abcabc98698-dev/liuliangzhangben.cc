@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="全周期验证规范" />
 <EvidenceBadge type="client-kernel" label="资产折旧复盘" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**如何把自己的按量需求整理成条件清单，再到主站比较真实套餐？**”，按量资产管理的闭环法则是：**大额购买必须有小额验证前置，长期沉淀必须有定期折旧复盘垫后。绝不能仅凭网页上的宣传文案就直接付款数百元，必须遵循‘100MB 探针测试真实倍率 $\rightarrow$ 小规格周期验证 $\rightarrow$ 最终资产定期核销’的完整闭环。**

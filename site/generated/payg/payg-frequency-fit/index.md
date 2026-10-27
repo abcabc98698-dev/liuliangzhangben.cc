@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="频率调度模型" />
 <EvidenceBadge type="standard-rule" label="间歇任务规划" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**每月只用几天的人怎样判断按量方案是否适合自己的任务？**”，频率驱动型按量规划的核心公理是：**用量不是连续均匀的，而是高度离散脉冲化的。对于工作日几乎不用、仅在特定周末或突发差旅时集中爆发的‘间歇性高脉冲用户’，按量方案是不被月清零机制剥削的最完美数学解。**

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="滑动周期规范" />
 <EvidenceBadge type="client-kernel" label="720小时倒计时" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**套餐没有说清楚重置周期时，工具应怎样保留待确认状态？**”，滚动周期（Rolling Cycle）的核心法则是：**滑动周期完全与自然公历脱钩，以用户支付订单成功的确切时间戳为起点，严格向后顺延 30 天（或固定 720 小时）。无论当前是平月、大月还是跨年，周期的结算点永远固定在订单生效的那个时刻。**

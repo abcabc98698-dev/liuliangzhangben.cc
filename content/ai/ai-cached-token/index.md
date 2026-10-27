@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="量纲解耦规范" />
 <EvidenceBadge type="client-kernel" label="Token与字节映射" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**缓存Token、浏览器缓存和文件复用是同一回事吗：计量边界解释**”，AI 计费对账的绝对红线是：**Token 是模型厂商的算力计费单位，Byte（字节）是网络服务商的传输计费单位。两者在物理量纲、计量层级与商业结算上完全独立解耦！100 万 Token 的 API 消费，在网络层出网流量往往只有区区几兆字节。严禁把大模型账单上的 Token 消耗与机场账单上的流量扣除混为一谈。**

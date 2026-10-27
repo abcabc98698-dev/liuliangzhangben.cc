@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="额度池共享规范" />
 <EvidenceBadge type="client-kernel" label="虚拟配额分配模型" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**同一设备切换不同机场账户，账本怎样避免把流量记到错误余额？**”，共享额度池管理的核心公理是：**公地必然导致悲剧，无分配必然导致挤兑。多台设备（家庭成员或小型团队）共享同一个月度总额度池时，必须为每个设备或角色划定‘虚拟软限额（Virtual Quota）’，杜绝某一台设备因挂机下载将全家全月额度在月初瞬间吸干。**

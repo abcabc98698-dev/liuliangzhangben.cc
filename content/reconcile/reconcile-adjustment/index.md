@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="调账分录规范" />
 <EvidenceBadge type="client-kernel" label="会计学借贷平衡" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**服务方补回流量后，怎样记录更正而不把它当成新的购买额度？**”，账本调账的最高准则是：**有借必有贷，借贷必相等。当通过工单维权获得了服务商补发的一张 50GB 流量券，或者后台执行了差额回滚更正时，严禁直接去篡改过去历史日期的原始记录！必须在获得补偿的当期，建立一条标准的‘差异更正与补偿分录（Adjustment Entry）’，保持审计历史链条的绝对完整。**

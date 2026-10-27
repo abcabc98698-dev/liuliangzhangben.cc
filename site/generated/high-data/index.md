@@ -355,7 +355,7 @@ $$\text{扣量差额} = 611.64 - 282.16 = 329.48\text{ GB}！$$
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=high_data_tb_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看 TB 级大流量专线 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=high_data_tb_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看 TB 级大流量专线 →</a>
 </div>
 </div>
 
@@ -372,7 +372,7 @@ $$\text{扣量差额} = 611.64 - 282.16 = 329.48\text{ GB}！$$
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=high_data_offpeak_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看闲时大吞吐套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=high_data_offpeak_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看闲时大吞吐套餐 →</a>
 </div>
 </div>
 
@@ -389,7 +389,7 @@ $$\text{扣量差额} = 611.64 - 282.16 = 329.48\text{ GB}！$$
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=high_data_studio_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看工作室团队套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=high_data_studio_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看工作室团队套餐 →</a>
 </div>
 </div>
 

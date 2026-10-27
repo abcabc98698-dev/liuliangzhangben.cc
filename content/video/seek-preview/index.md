@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="ABR自适应机制" />
 <EvidenceBadge type="client-kernel" label="画质跳变控制" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**拖动进度和反复预览会怎样影响用量，如何设计可比较的小测试？**”，自适应画质（Adaptive Bitrate Streaming, ABR）的核心矛盾是：**平台的算法永远在追求‘最高画质与零缓冲卡顿’，而用户的账本追求的是‘额度可控与理性消费’。当画质设为‘Auto（自动）’时，一旦夜间本地带宽充裕，播放器会自动跳升至最高码率，流量消耗速度会呈指数级暴增 4 倍。**

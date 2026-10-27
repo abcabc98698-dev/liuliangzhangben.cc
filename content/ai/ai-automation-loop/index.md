@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="重试损耗准则" />
 <EvidenceBadge type="client-kernel" label="流式中断机制" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**自动化任务反复重跑时，怎样统计去重后的任务数与实际重复传输？**”，AI 任务重试的残酷现实是：**网络一旦在模型输出第 99% 时断开，整段回答不仅全部报废，而且重试必须将长达数万字的完整历史上下文全量重新上传。若使用的代理节点频繁发生 30 秒超时或 TCP 重置，AI 任务的网络消耗与时间成本会发生灾难性的翻倍。**

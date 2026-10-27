@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="模型回测修正" />
 <EvidenceBadge type="standard-rule" label="误差闭环准则" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**修正估算方法后如何保留旧预测，让用户知道误差为什么变化？**”，模型验证的核心真理是：**不经过周期回测的预测模型没有工程价值。每个周期结束时，必须将初始估算值与服务商最终账单结算值进行无情比对，计算绝对偏差与相对误差率，并据此修正下一个周期的输入参数。**

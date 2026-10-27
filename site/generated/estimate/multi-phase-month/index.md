@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="任务组合矩阵" />
 <EvidenceBadge type="standard-rule" label="周期加权算法" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**上半月忙、下半月少用，怎样按阶段建立周期流量预测？**”，周期需求合成的核心公理是：**单任务模型不能孤立存在，周期总量是所有离散与连续任务在时间日历上的非均匀叠加。周一至周五的生产力型轻量载荷与周六周日的沉浸式流媒体重度载荷，必须通过加权组合公式归一化到计费周期中。**

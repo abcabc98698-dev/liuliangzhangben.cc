@@ -367,7 +367,7 @@ Total Physical Wire Occupancy: 118 + 14 + 4 + 8 + 12 = 156 Bytes!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=knowledge_standard_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看高标准合规榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=knowledge_standard_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看高标准合规榜 →</a>
 </div>
 </div>
 
@@ -384,7 +384,7 @@ Total Physical Wire Occupancy: 118 + 14 + 4 + 8 + 12 = 156 Bytes!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=knowledge_efficiency_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看高能效轻量套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=knowledge_efficiency_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看高能效轻量套餐 →</a>
 </div>
 </div>
 
@@ -401,7 +401,7 @@ Total Physical Wire Occupancy: 118 + 14 + 4 + 8 + 12 = 156 Bytes!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=knowledge_flagship_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看全协议旗舰榜 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=knowledge_flagship_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看全协议旗舰榜 →</a>
 </div>
 </div>
 

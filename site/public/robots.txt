@@ -4,11 +4,17 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /404.html
 
-# 明确支持主流搜索引擎与 AI 检索机器人
+# 明确支持主流中文与国际搜索引擎及 AI 检索机器人
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: yisouspider
 Allow: /
 
 User-agent: OAI-SearchBot

@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="临时任务规程" />
 <EvidenceBadge type="client-kernel" label="短期成本模型" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**出行前准备临时网络服务，怎样核对设备、目的地条件与使用资料？**”，短期突发任务的处理公理是：**临时任务必须以‘最小采购单元与零长期承诺’为边界。为了一个为期 3 天的临时签证办理、为期一周的海外学术会议线上参会，严禁开通任何带有自动续费绑定的长期月付或季度套餐。**

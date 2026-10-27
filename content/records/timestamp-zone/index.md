@@ -12,6 +12,8 @@ layout: doc
 <EvidenceBadge type="client-kernel" label="整数字节无损" />
 <EvidenceBadge type="packet-snapshot" label="时间序列精度" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**同一条用量记录要保存哪个时间：本地时间、服务时间与观察时间**”，建立专业流量账本的核心技术法则是：**存储用整数字节，显示用浮点单位；时间戳严格绑定时区偏移（ISO 8601 格式），数值性质必须严格区分“区间增量（Delta）”与“累计抄表值（Cumulative）”。任何跳过整数字节直接用浮点数存取累加的账本，均会在连续累加中因 IEEE 754 精度截断而产生严重累计误差。**

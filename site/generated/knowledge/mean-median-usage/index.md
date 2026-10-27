@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="统计分析规范" />
 <EvidenceBadge type="client-kernel" label="重尾分布解构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**平均日用量、中位数和高用量日各说明什么，怎样避免只看一个数字？**”，网络统计学的终极法则：**不要相信平均数，平均数是掩盖波峰与断流的罪魁祸首。网络流量在时间轴上不是正态分布（Normal Distribution），而是高度偏斜的‘重尾分布（Heavy-tailed Distribution）’。全月 80% 的时间流量趋近于零，而在 20% 的集中峰值期瞬间爆发。用‘日均消耗’指导容量规划，必然导致月末提前断流。**

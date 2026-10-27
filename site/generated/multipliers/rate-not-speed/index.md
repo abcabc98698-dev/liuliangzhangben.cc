@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="倍率计量公理" />
 <EvidenceBadge type="client-kernel" label="有效物理额度换算" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**2倍倍率是否代表两倍速度：计费规则与性能指标为什么要分开？**”，单倍率计算的首要法则是：**节点倍率是计费额度与实际出网物理流量之间的放大（或缩小）系数。标称配额（Billing Quota）除以节点倍率（Multiplier），才是用户在该节点上实际能够传输的真实物理字节数。**

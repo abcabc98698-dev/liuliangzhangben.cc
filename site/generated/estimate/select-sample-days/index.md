@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="基线采样模型" />
 <EvidenceBadge type="client-kernel" label="样本代表性甄别" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**估算下月机场流量前，应该选哪些天作为观察样本？**”，流量估算首要法则：**未经清洗的样本必然产生严重失真的预测。历史用量中混杂的一过性系统重装、临时超大素材下载或家庭网络测速，若直接并入周期基线，会导致套餐预算虚高；而忽略了月初更新潮的静态样本，则会导致月末提前断流。**

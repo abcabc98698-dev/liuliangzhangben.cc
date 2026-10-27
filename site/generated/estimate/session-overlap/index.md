@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="model-estimate" label="任务粒度拆解" />
 <EvidenceBadge type="standard-rule" label="文件载荷标准" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**多个任务同时进行时，为什么不能把总在线时长重复用于每个任务？**”，离散任务建模的核心是：**不要用抽象的‘我很常用’来估算，而应将其表达为‘单次有效载荷 $\times$ 日均调用频次 $\times$ 传输膨胀系数’。网络传输不仅包含文件本身的物理字节，还叠加了 HTTP 标头、API 轮询开销以及断点续传的重叠数据。**

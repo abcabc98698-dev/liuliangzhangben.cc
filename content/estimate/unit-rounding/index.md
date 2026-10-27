@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="单位换算规范" />
 <EvidenceBadge type="client-kernel" label="带宽时间乘积" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**GB和GiB转换后为什么有小数：容量估算应该在哪一步舍入？**”，速率与容量的换算基石是：**速率是时间的导数（单位时间内流过的比特数），容量是速率在时间轴上的积分（流过的总字节数）。绝不能把运营商宣传的“300M 宽带”与“300MB 流量”混为一谈。大写 B (Byte) 代表字节，小写 b (bit) 代表比特，1 字节严格等于 8 比特。**

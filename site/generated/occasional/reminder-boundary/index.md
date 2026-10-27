@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="账户复查规程" />
 <EvidenceBadge type="client-kernel" label="资产保活巡检" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**为流量包设置提醒时，应该提醒到期、余额还是下次任务？**”，低频维护的核心法则是：**被遗忘的资产是最危险的资产。长达数月不登录的休眠账户，极易遭遇‘服务商域名更换导致订阅失联’、‘API Token 定期失效’或‘数据库重构误删僵尸账号’。必须建立一套标准化的‘季度账户体检与保活巡检规程’。**

@@ -358,7 +358,7 @@ Server Account Deduction: Exactly 1.00 GB!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=mobile_low_power_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看移动低功耗专线榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=mobile_low_power_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看移动低功耗专线榜 →</a>
 </div>
 </div>
 
@@ -375,7 +375,7 @@ Server Account Deduction: Exactly 1.00 GB!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=mobile_tethering_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看大容量热点套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=mobile_tethering_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看大容量热点套餐 →</a>
 </div>
 </div>
 
@@ -392,7 +392,7 @@ Server Account Deduction: Exactly 1.00 GB!
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=mobile_payg_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看手机备用方案 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=mobile_payg_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看手机备用方案 →</a>
 </div>
 </div>
 

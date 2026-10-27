@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="iOS统计规范" />
 <EvidenceBadge type="client-kernel" label="NetworkExtension机制" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**iPad同时使用Wi-Fi和蜂窝时，用量账本如何区分数据来源？**”，iOS 移动端流量统计的残酷真相是：**苹果系统的流量统计是‘半失控’的。iOS 的“蜂窝网络”用量统计绝不会随自然月自动清零，必须由用户手动点击重置；而在极其常用的 Wi-Fi 环境下，iOS 根本没有提供任何单应用流量统计面板！在 iOS 上核算流量，必须 100% 依赖 Shadowrocket、Loon、Stash 等代理工具自身的内置统计。**

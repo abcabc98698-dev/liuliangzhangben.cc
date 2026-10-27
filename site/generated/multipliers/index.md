@@ -361,7 +361,7 @@ Step 3: Account Quota Mutation
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=multipliers_flat_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看恒定 1.0x 专线榜 →</a>
+<a href="https://jichangbang.org/recommend/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=multipliers_flat_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看恒定 1.0x 专线榜 →</a>
 </div>
 </div>
 
@@ -378,7 +378,7 @@ Step 3: Account Quota Mutation
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=multipliers_offpeak_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看闲时低倍率套餐 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=multipliers_offpeak_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看闲时低倍率套餐 →</a>
 </div>
 </div>
 
@@ -395,7 +395,7 @@ Step 3: Account Quota Mutation
 </tbody>
 </table>
 <div class="card-action">
-<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=multipliers_video_tier" target="_blank" rel="noopener noreferrer" class="ledger-btn-primary">前往主站查看单向低倍率影音包 →</a>
+<a href="https://jichangbang.org/pricing/?utm_source=liuliangzhangben&utm_medium=pillar_hub&utm_campaign=multipliers_video_tier" target="_blank" rel="nofollow sponsored noopener" class="ledger-btn-primary">前往主站查看单向低倍率影音包 →</a>
 </div>
 </div>
 

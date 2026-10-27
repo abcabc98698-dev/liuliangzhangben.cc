@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="时序对齐规范" />
 <EvidenceBadge type="client-kernel" label="批处理聚合延迟解构" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**本地记录截止时刻和账单截点不同，怎样对齐而不重复补算？**”，时间差核对的核心公理是：**实时是相对的，延迟是必然的。客户端本地统计是微秒级即时刷新的，而服务商的分布式网关通常采用‘批处理队列（Batching Queue）’每隔 5 至 15 分钟异步上报主数据库。刚下完 10GB 文件立刻刷新网页后台，发现数字没变或只扣了一半，绝非服务商少扣，只是数据还在队列传输途中。**

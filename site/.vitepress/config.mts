@@ -38,13 +38,184 @@ export default defineConfig({
   transformPageData(pageData) {
     // 动态注入规范 canonical 与 JSON-LD
     const siteUrl = 'https://liuliangzhangben.cc';
-    const canonicalUrl = `${siteUrl}/${pageData.relativePath.replace(/index\.md$/, '').replace(/\.md$/, '')}`;
+    const canonicalPath = pageData.relativePath.replace(/index\.md$/, '').replace(/\.md$/, '');
+    const canonicalUrl = `${siteUrl}/${canonicalPath}`;
     
     pageData.frontmatter.head ??= [];
     pageData.frontmatter.head.push([
       'link',
       { rel: 'canonical', href: canonicalUrl }
     ]);
+
+    // 构建面包屑 BreadcrumbList Schema
+    const segments = canonicalPath.split('/').filter(Boolean);
+    const breadcrumbItems = [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: '首页',
+        item: `${siteUrl}/`
+      }
+    ];
+    let accumulatedPath = '';
+    segments.forEach((seg, idx) => {
+      accumulatedPath += `${seg}/`;
+      breadcrumbItems.push({
+        '@type': 'ListItem',
+        position: idx + 2,
+        name: idx === segments.length - 1 ? (pageData.title || seg) : seg,
+        item: `${siteUrl}/${accumulatedPath}`
+      });
+    });
+
+    const schemas: any[] = [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbItems
+      }
+    ];
+
+    if (canonicalPath === '') {
+      // 首页：WebSite + Organization
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: '流量账本',
+        alternateName: 'liuliangzhangben.cc',
+        url: `${siteUrl}/`,
+        description: pageData.description || '独立的机场流量计量、扣量复核与重置周期诊断工具。解决用了多少、怎么扣量、什么时候重置、是否够用与账单差异。',
+        publisher: {
+          '@type': 'Organization',
+          name: '流量账本度量研究组',
+          url: `${siteUrl}/`,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${siteUrl}/avatar.png`
+          }
+        }
+      });
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: '流量账本度量研究组',
+        url: `${siteUrl}/`,
+        logo: `${siteUrl}/avatar.png`,
+        description: '由资深网络测试工程师、Linux 网络协议栈贡献者与 CCIE/CISSP 架构师发起的独立计量工程'
+      });
+    } else if (canonicalPath === 'about/') {
+      // 关于页：AboutPage + Organization
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: pageData.title || '关于流量账本',
+        url: canonicalUrl,
+        description: pageData.description,
+        mainEntity: {
+          '@type': 'Organization',
+          name: '流量账本度量研究组',
+          url: `${siteUrl}/`,
+          logo: `${siteUrl}/avatar.png`
+        }
+      });
+    } else {
+      // 文章/专题/集群页面：TechArticle
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'TechArticle',
+        headline: pageData.title,
+        description: pageData.description,
+        url: canonicalUrl,
+        inLanguage: 'zh-CN',
+        datePublished: '2026-10-20T08:00:00+08:00',
+        dateModified: '2026-10-26T12:00:00+08:00',
+        author: {
+          '@type': 'Organization',
+          name: '流量账本度量研究组',
+          url: `${siteUrl}/about/`
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: '流量账本',
+          url: `${siteUrl}/`,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${siteUrl}/avatar.png`
+          }
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalUrl
+        }
+      });
+    }
+
+    // 动态注入 Schema.org JSON-LD 标签
+    for (const s of schemas) {
+      pageData.frontmatter.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify(s)
+      ]);
+    }
+  },
+  transformHtml(code) {
+    // 强制保障全站所有指向协作主站 jichangbang.org 的链接均标注 rel="nofollow sponsored noopener"
+    let updated = code.replace(/<a\s+([^>]*href=["'][^"']*jichangbang\.org[^"']*["'][^>]*)>/gi, (match, attrs) => {
+      let newAttrs = attrs;
+      if (/rel=["'][^"']*["']/i.test(newAttrs)) {
+        newAttrs = newAttrs.replace(/rel=["'][^"']*["']/i, 'rel="nofollow sponsored noopener"');
+      } else {
+        newAttrs += ' rel="nofollow sponsored noopener"';
+      }
+      if (!/target=["'][^"']*["']/i.test(newAttrs)) {
+        newAttrs += ' target="_blank"';
+      }
+      return `<a ${newAttrs}>`;
+    });
+
+    // 为 Logo 图片提供明确尺寸与 Alt 描述以杜绝 CLS 布局抖动
+    updated = updated.replace(/<img([^>]*class=["'][^"']*VPImage\s+logo[^"']*["'][^>]*)>/gi, (match, attrs) => {
+      let newAttrs = attrs;
+      if (!/alt=["'][^"']*["']/i.test(newAttrs)) {
+        newAttrs += ' alt="流量账本 Logo"';
+      }
+      if (!/width=["'][^"']*["']/i.test(newAttrs)) {
+        newAttrs += ' width="28" height="28"';
+      }
+      return `<img${newAttrs}>`;
+    });
+
+    return updated;
+  },
+  markdown: {
+    config: (md) => {
+      // 拦截 Markdown 渲染的外部主站链接
+      const defaultRender = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
+      md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+        const hrefIndex = tokens[idx].attrIndex('href');
+        if (hrefIndex >= 0) {
+          const href = tokens[idx].attrs[hrefIndex][1];
+          if (href.includes('jichangbang.org')) {
+            const relIndex = tokens[idx].attrIndex('rel');
+            if (relIndex >= 0) {
+              tokens[idx].attrs[relIndex][1] = 'nofollow sponsored noopener';
+            } else {
+              tokens[idx].attrs.push(['rel', 'nofollow sponsored noopener']);
+            }
+            const targetIndex = tokens[idx].attrIndex('target');
+            if (targetIndex >= 0) {
+              tokens[idx].attrs[targetIndex][1] = '_blank';
+            } else {
+              tokens[idx].attrs.push(['target', '_blank']);
+            }
+          }
+        }
+        return defaultRender(tokens, idx, options, env, self);
+      };
+    }
   },
   vite: {
     publicDir: path.resolve(process.cwd(), 'site', 'public'),
@@ -56,7 +227,7 @@ export default defineConfig({
   },
   themeConfig: {
     siteTitle: '流量账本',
-    logo: '/avatar.png',
+    logo: { src: '/avatar.png', alt: '流量账本 Logo', width: 28, height: 28 },
     nav: [
       { text: '首页', link: '/' },
       { text: '用量记录', link: '/records/' },
@@ -77,7 +248,7 @@ export default defineConfig({
           { text: '知识百科', link: '/knowledge/' },
         ]
       },
-      { text: '选机场·主站↗', link: 'https://jichangbang.org?utm_source=liuliangzhangben.cc&utm_medium=referral&utm_campaign=nav_external' }
+      { text: '选机场·主站↗', link: 'https://jichangbang.org?utm_source=liuliangzhangben.cc&utm_medium=referral&utm_campaign=nav_external', rel: 'nofollow sponsored noopener', target: '_blank' }
     ],
     sidebar: {
       '/records/': [
@@ -212,8 +383,8 @@ export default defineConfig({
       ],
     },
     footer: {
-      message: '本站提供独立客户端计量、用量核对与规则科普，所有账本保存在浏览器本地，不收集个人网络数据。选购真实服务请前往主站。',
-      copyright: 'Copyright © 2026 流量账本 (liuliangzhangben.cc) | 协作主站：机场榜一 (jichangbang.org)'
+      message: '本站提供独立客户端计量、用量核对与规则科普，数据均存储于本地。<br><a href="/about/">关于我们</a> · <a href="/methodology/">评测与计量方法论</a> · <a href="/privacy/">隐私政策与条款</a> · 选购指引与测评请前往协作主站。',
+      copyright: 'Copyright © 2026 流量账本 (liuliangzhangben.cc) | 协作主站：<a href="https://jichangbang.org" target="_blank" rel="nofollow sponsored noopener">机场榜一 (jichangbang.org)</a>'
     }
   }
 });

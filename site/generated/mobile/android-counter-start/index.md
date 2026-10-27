@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="standard-rule" label="Android统计架构" />
 <EvidenceBadge type="client-kernel" label="Linux内核UID解析" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**Android手机的应用流量统计怎样用于账本：先确认系统版本和统计范围**”，Android 移动端流量读取的核心法则是：**系统设置中显示的应用流量不等于出网代理流量。Android 系统依托 Linux 内核的 qtaguid / xt_qtaguid 模块按应用 UID 统计所有 Socket 字节，而在开启 VpnService（代理客户端）后，代理应用会成为整台手机的中心流量漏斗，导致系统统计中代理 App 呈现出‘双倍或全量通吃’的虚假假象。**

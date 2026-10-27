@@ -11,6 +11,8 @@ layout: doc
 <EvidenceBadge type="client-kernel" label="路径拓扑分析" />
 <EvidenceBadge type="standard-rule" label="计数去重准则" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**同一份数据经过多个网络环节，哪些计数是观察值而不是新增用量？**”，多路径核算的首要法则是：**数据包流经的物理链路与逻辑计费点必须清晰解耦。在链式代理（前置代理 + 落地节点）或国内中转机（Relay）架构下，极易出现‘同一任务在不同计费实体被重复累加’的双重计费幻觉。**

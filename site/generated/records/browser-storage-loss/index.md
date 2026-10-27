@@ -12,6 +12,8 @@ layout: doc
 <EvidenceBadge type="client-kernel" label="浏览器沙箱机制" />
 <EvidenceBadge type="packet-snapshot" label="本地持久化" />
 
+<AuthorByline />
+
 ## 一、核心答案与适用前提
 
 针对“**浏览器清理缓存后账本不见了，怎样设计可恢复的本地备份习惯？**”，现代隐私优先 Web 应用的核心法则是：**安全源于物理层面的绝不上报。本站坚持“纯静态 + 浏览器沙箱”架构——默认运行于纯内存会话模式，刷新即焚；仅在用户主动授权下写入本地 localStorage 或 IndexedDB。服务器端无任何数据库与用户凭据接口，杜绝任何数据泄露的理论可能。**
